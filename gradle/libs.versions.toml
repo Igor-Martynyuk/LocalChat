@@ -2,17 +2,19 @@
 agp = "8.10.1"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.9.1"
-activityCompose = "1.10.1"
 composeBom = "2025.06.01"
 appcompat = "1.7.1"
 material = "1.12.0"
 activity = "1.10.1"
+lifecycleRuntimeKtx = "2.9.1"
+activityCompose = "1.10.1"
 constraintlayout = "2.2.1"
+hilt = "2.56.2"
+moshi = "1.15.2"
 firebase = "33.16.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
 
 [libraries]
 #androidx
@@ -34,12 +36,17 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 #firebase
-firebase-core = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase"}
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth"}
+firebase-core = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+
+#di
+hilt-core = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 
 #other
-junit = { group = "junit", name = "junit", version.ref = "junit" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi"}
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

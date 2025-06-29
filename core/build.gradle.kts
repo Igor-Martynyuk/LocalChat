@@ -36,14 +36,15 @@ dependencies {
     //androidx
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-
+    //di
+    implementation(libs.hilt.core)
+    annotationProcessor(libs.hilt.compiler)
     //firebase
-    implementation(libs.material)
     implementation(platform(libs.firebase.core))
-
-    //other
     implementation(libs.firebase.auth)
-
+    //other
+    implementation(libs.material)
+    implementation(libs.moshi)
     //test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
