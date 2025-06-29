@@ -33,9 +33,18 @@ android {
 }
 
 dependencies {
+    //androidx
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+
+    //firebase
     implementation(libs.material)
+    implementation(platform(libs.firebase.core))
+
+    //other
+    implementation(libs.firebase.auth)
+
+    //test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
