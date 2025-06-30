@@ -47,6 +47,8 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.navigation.fragment)
     //di
     implementation(libs.hilt.core)
     kapt(libs.hilt.compiler)
