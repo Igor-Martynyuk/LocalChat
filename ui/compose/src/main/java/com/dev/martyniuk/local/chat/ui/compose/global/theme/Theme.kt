@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.compose.ui.theme
+package com.dev.martyniuk.local.chat.ui.compose.global.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -1,9 +1,10 @@
-package com.dev.martyniuk.local.chat.ui.compose
+package com.dev.martyniuk.local.chat.ui.compose.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -11,9 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.dev.martyniuk.local.chat.ui.compose.ui.theme.LocalChatTheme
+import com.dev.martyniuk.local.chat.ui.compose.global.theme.LocalChatTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    private val viewModel: ViewModelMain by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,13 +26,14 @@ class MainActivity : ComponentActivity() {
             LocalChatTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "${viewModel.hashCode()}",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
         }
     }
+
 }
 
 @Composable
