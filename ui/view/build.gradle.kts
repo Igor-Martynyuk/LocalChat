@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.hilt.plugin)
 }
 
 android {
@@ -38,11 +40,17 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    //androidx
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //di
+    implementation(libs.hilt.core)
+    kapt(libs.hilt.compiler)
+    //other
+    implementation(libs.material)
+    //test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

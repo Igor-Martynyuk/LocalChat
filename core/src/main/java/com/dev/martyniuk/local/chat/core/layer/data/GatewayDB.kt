@@ -1,8 +1,8 @@
-package com.dev.martyniuk.local.chat.core.data
+package com.dev.martyniuk.local.chat.core.layer.data
 
-import com.dev.martyniuk.local.chat.core.domain.auth.CaseSubscribeIsAuthorized
-import com.dev.martyniuk.local.chat.core.domain.auth.abstraction.CaseAuthorize
-import com.dev.martyniuk.local.chat.core.domain.auth.dto.DtoUserAccount
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuthorize
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow

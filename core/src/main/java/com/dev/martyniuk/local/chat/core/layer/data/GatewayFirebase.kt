@@ -1,8 +1,8 @@
-package com.dev.martyniuk.local.chat.core.data
+package com.dev.martyniuk.local.chat.core.layer.data
 
-import com.dev.martyniuk.local.chat.core.domain.auth.CaseLogIn
-import com.dev.martyniuk.local.chat.core.domain.auth.CaseSignUp
-import com.dev.martyniuk.local.chat.core.domain.auth.dto.DtoUserAccount
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseLogIn
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUp
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -38,7 +39,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     //di
     implementation(libs.hilt.core)
-    annotationProcessor(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
     //firebase
     implementation(platform(libs.firebase.core))
     implementation(libs.firebase.auth)

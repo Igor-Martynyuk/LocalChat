@@ -1,8 +1,8 @@
-package com.dev.martyniuk.local.chat.core.domain.auth
+package com.dev.martyniuk.local.chat.core.layer.domain.auth
 
-import com.dev.martyniuk.local.chat.core.domain.UseCase
-import com.dev.martyniuk.local.chat.core.domain.auth.abstraction.CaseAuthorize
-import com.dev.martyniuk.local.chat.core.domain.auth.dto.DtoUserAccount
+import com.dev.martyniuk.local.chat.core.layer.domain.UseCase
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuthorize
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
