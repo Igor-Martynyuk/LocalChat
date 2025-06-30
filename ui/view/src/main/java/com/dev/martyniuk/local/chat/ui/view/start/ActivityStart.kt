@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view
+package com.dev.martyniuk.local.chat.ui.view.start
 
 import android.os.Bundle
 import android.widget.TextView
@@ -7,11 +7,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dev.martyniuk.local.chat.ui.view.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ActivityMain : AppCompatActivity() {
-    private val viewModel: ViewModelMain by viewModels()
+class ActivityStart : AppCompatActivity() {
+    private val viewModel: ViewModelStart by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

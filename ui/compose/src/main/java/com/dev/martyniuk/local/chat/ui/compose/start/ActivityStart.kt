@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.compose.main
+package com.dev.martyniuk.local.chat.ui.compose.start
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel: ViewModelMain by viewModels()
+    private val viewModel: ViewModelStart by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
