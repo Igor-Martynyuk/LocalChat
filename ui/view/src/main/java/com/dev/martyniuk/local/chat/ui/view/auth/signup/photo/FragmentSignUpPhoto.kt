@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentSignUpPhoto : Fragment() {
-    val viewModel: ViewModelSignUpPhoto by viewModels()
+    private val viewModel: ViewModelSignUpPhoto by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
         inflater.inflate(R.layout.fragment_auth_singn_up_photo, group, false)

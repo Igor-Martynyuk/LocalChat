@@ -12,7 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentSignInFacebook : Fragment() {
-    val viewModel: ViewModelSignInFacebook by viewModels()
+    private val viewModel: ViewModelSignInFacebook by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
         inflater.inflate(R.layout.fragment_sign_in_facebook, group, false)

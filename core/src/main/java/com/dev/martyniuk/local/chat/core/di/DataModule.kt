@@ -2,7 +2,7 @@ package com.dev.martyniuk.local.chat.core.di
 
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayDB
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayFirebase
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseLogIn
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUp
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuthorize
@@ -26,7 +26,7 @@ interface DataModule {
 
     @Binds
     @Singleton
-    fun bindLogInRemotePort(impl: GatewayFirebase): CaseLogIn.RemotePort
+    fun bindLogInRemotePort(impl: GatewayFirebase): CaseSignIn.RemotePort
 
     @Binds
     @Singleton

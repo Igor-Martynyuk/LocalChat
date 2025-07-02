@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentSignInGoogle : Fragment() {
-    val viewModel: ViewModelSignInGoogle by viewModels()
+    private val viewModel: ViewModelSignInGoogle by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
         inflater.inflate(R.layout.fragment_sign_in_google, group, false)

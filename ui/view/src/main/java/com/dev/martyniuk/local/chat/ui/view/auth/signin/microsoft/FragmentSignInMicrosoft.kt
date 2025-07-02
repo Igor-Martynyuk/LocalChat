@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentSignInMicrosoft : Fragment() {
-    val viewModel: ViewModelSignInMicrosoft by viewModels()
+    private val viewModel: ViewModelSignInMicrosoft by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
         inflater.inflate(R.layout.fragment_sign_in_microsoft, group, false)

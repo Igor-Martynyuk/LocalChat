@@ -11,10 +11,10 @@ import javax.inject.Singleton
 
 @Singleton
 @OptIn(ExperimentalCoroutinesApi::class)
-class CaseLogIn @Inject constructor(
+class CaseSignIn @Inject constructor(
     private val remotePort: RemotePort,
     private val localPort: CaseAuthorize.LocalPort
-) : UseCase<CaseLogIn.Args, Unit>() {
+) : UseCase<CaseSignIn.Args, Unit>() {
 
     data class Args(
         val email: String,

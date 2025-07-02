@@ -15,15 +15,15 @@
             app:destination="@id/destination_sign_in_google" />
 
         <action
-            android:id="@+id/action_destination_auth_sign_in_to_microsoft"
+            android:id="@+id/action_auth_sign_in_to_microsoft"
             app:destination="@id/destination_sign_in_microsoft" />
 
         <action
-            android:id="@+id/action_destination_auth_sign_in_facebook"
+            android:id="@+id/action_auth_sign_in_to_facebook"
             app:destination="@id/destination_sign_in_facebook" />
 
         <action
-            android:id="@+id/action_auth_sign_in_to_credentials"
+            android:id="@+id/action_auth_sign_in_to_sign_up_credentials"
             app:destination="@id/destination_sign_up_credentials" />
 
         <action
@@ -53,7 +53,7 @@
         tools:layout="@layout/fragment_auth_sign_up_credentials">
 
         <action
-            android:id="@+id/action_sign_up_credentials_to_auth"
+            android:id="@+id/action_auth_sign_up_credentials_to_photo"
             app:destination="@id/destination_sign_up_photo" />
 
     </fragment>

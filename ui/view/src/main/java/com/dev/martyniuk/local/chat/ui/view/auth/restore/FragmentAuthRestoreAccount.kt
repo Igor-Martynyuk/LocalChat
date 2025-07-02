@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentAuthRestoreAccount : Fragment() {
-    val viewModel: ViewModelRestoreAccount by viewModels()
+    private val viewModel: ViewModelRestoreAccount by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
         inflater.inflate(R.layout.fragment_auth_restore_account, group, false)

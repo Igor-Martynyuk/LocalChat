@@ -18,31 +18,37 @@
         android:layout_weight="1" />
 
     <Button
+        android:id="@+id/btn_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Signin" />
 
     <Button
+        android:id="@+id/btn_sign_in_with_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Signin with Google" />
 
     <Button
+        android:id="@+id/btn_sign_in_with_microsoft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Signin with Microsoft" />
 
     <Button
+        android:id="@+id/btn_sign_in_with_facebook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Signin with Facebook" />
 
     <Button
+        android:id="@+id/btn_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up" />
 
     <Button
+        android:id="@+id/btn_restore_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Restore password" />

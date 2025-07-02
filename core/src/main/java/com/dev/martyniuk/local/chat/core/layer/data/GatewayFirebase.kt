@@ -1,6 +1,6 @@
 package com.dev.martyniuk.local.chat.core.layer.data
 
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseLogIn
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUp
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
 import kotlinx.coroutines.delay
@@ -10,7 +10,7 @@ import javax.inject.Singleton
 import kotlin.random.Random
 
 @Singleton
-class GatewayFirebase @Inject constructor() : CaseSignUp.RemotePort, CaseLogIn.RemotePort {
+class GatewayFirebase @Inject constructor() : CaseSignUp.RemotePort, CaseSignIn.RemotePort {
 
     override suspend fun createAccount(email: String, password: String, photoUrl: String) =
         flow {
