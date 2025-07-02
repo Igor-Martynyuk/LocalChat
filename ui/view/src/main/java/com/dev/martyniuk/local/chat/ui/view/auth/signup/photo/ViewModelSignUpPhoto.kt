@@ -1,0 +1,8 @@
+package com.dev.martyniuk.local.chat.ui.view.auth.signup.photo
+
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class ViewModelSignUpPhoto @Inject constructor() : ViewModel()

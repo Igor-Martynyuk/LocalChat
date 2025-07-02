@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.fragment.root
+package com.dev.martyniuk.local.chat.ui.view.auth.signin
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,10 @@ import com.dev.martyniuk.local.chat.ui.view.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FragmentAuthRoot : Fragment() {
-    val viewModel: ViewModelAuthRoot by viewModels()
+class FragmentSignIn : Fragment() {
+    val viewModel: ViewModelSignIn by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_auth_root, group, false)
+        inflater.inflate(R.layout.fragment_auth_sign_in, group, false)
 
 }

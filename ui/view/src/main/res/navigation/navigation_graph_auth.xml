@@ -3,11 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph_auth"
-    app:startDestination="@id/destination_auth_root">
+    app:startDestination="@id/destination_auth_sign_in">
 
     <fragment
-        android:id="@+id/destination_auth_root"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.fragment.root.FragmentAuthRoot"
-        tools:layout="@layout/fragment_auth_root" />
+        android:id="@+id/destination_auth_sign_in"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.FragmentSignIn"
+        tools:layout="@layout/fragment_auth_sign_in">
+
+        <action
+            android:id="@+id/action_auth_sign_in_to_google"
+            app:destination="@id/destination_sign_in_google" />
+
+        <action
+            android:id="@+id/action_destination_auth_sign_in_to_microsoft"
+            app:destination="@id/destination_sign_in_microsoft" />
+
+        <action
+            android:id="@+id/action_destination_auth_sign_in_facebook"
+            app:destination="@id/destination_sign_in_facebook" />
+
+        <action
+            android:id="@+id/action_auth_sign_in_to_credentials"
+            app:destination="@id/destination_sign_up_credentials" />
+
+        <action
+            android:id="@+id/action_auth_sign_in_to_restore_account"
+            app:destination="@id/destination_auth_restore_account" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/destination_sign_in_google"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.google.FragmentSignInGoogle"
+        tools:layout="@layout/fragment_sign_in_google" />
+
+    <fragment
+        android:id="@+id/destination_sign_in_microsoft"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.microsoft.FragmentSignInMicrosoft"
+        tools:layout="@layout/fragment_sign_in_microsoft" />
+
+    <fragment
+        android:id="@+id/destination_sign_in_facebook"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.facebook.FragmentSignInFacebook"
+        tools:layout="@layout/fragment_sign_in_facebook" />
+
+    <fragment
+        android:id="@+id/destination_sign_up_credentials"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signup.credentials.FragmentSignUpCredentials"
+        tools:layout="@layout/fragment_auth_sign_up_credentials">
+
+        <action
+            android:id="@+id/action_sign_up_credentials_to_auth"
+            app:destination="@id/destination_sign_up_photo" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/destination_sign_up_photo"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signup.photo.FragmentSignUpPhoto"
+        tools:layout="@layout/fragment_auth_singn_up_photo" />
+
+    <fragment
+        android:id="@+id/destination_auth_restore_account"
+        android:name="com.dev.martyniuk.local.chat.ui.view.auth.restore.FragmentAuthRestoreAccount"
+        tools:layout="@layout/fragment_auth_restore_account" />
 
 </navigation>

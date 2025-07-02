@@ -1,0 +1,20 @@
+package com.dev.martyniuk.local.chat.ui.view.auth.signin.facebook
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import com.dev.martyniuk.local.chat.ui.view.R
+import com.dev.martyniuk.local.chat.ui.view.auth.signin.auto.facebook.ViewModelSignInFacebook
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class FragmentSignInFacebook : Fragment() {
+    val viewModel: ViewModelSignInFacebook by viewModels()
+
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
+        inflater.inflate(R.layout.fragment_sign_in_facebook, group, false)
+
+}
