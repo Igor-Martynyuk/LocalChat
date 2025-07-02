@@ -2,6 +2,7 @@ package com.dev.martyniuk.local.chat.ui.view.auth.signin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dev.martyniuk.local.chat.core.common.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
 import com.dev.martyniuk.local.chat.ui.view.auth.EventDispatcherAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,26 +13,26 @@ import javax.inject.Inject
 class ViewModelSignIn @Inject constructor(
     private val eventDispatcher: EventDispatcherAuth,
     private val signInCase: CaseSignIn
-) : ViewModel() {
+) : ViewModel(), ContractSignIn {
 
-    fun onSignInCommand(email: String, password: String) = viewModelScope.launch {
+    override fun onSignInCommand(email: String, password: String) = viewModelScope.launch {
         signInCase
             .getFlow(CaseSignIn.Args(email, password))
             .collect { }
-    }
+    }.ignore()
 
-    fun onSignInWithGoogleCommand() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithGoogle)
+    override fun onSignInWithGoogleCommand() =
+        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithGoogle).ignore()
 
-    fun onSignInWithMicrosoft() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithMicrosoft)
+    override fun onSignInWithMicrosoft() =
+        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithMicrosoft).ignore()
 
-    fun onSignInWithFacebook() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithFacebook)
+    override fun onSignInWithFacebook() =
+        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithFacebook).ignore()
 
-    fun onSignUpCommand() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignUpCredentials)
+    override fun onSignUpCommand() =
+        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignUpCredentials).ignore()
 
-    fun onRestoreAccountCommand() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.RestoreAccount)
+    override fun onRestoreAccountCommand() =
+        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.RestoreAccount).ignore()
 }

@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".auth.signin.FragmentSignIn">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Authentication"
-        android:textAlignment="center" />
+    <data>
+        <variable
+            name="viewModel"
+            type="com.dev.martyniuk.local.chat.ui.view.auth.signin.ViewModelSignIn" />
+    </data>
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_sign_in"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signin" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Authentication"
+            android:textAlignment="center" />
 
-    <Button
-        android:id="@+id/btn_sign_in_with_google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signin with Google" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-    <Button
-        android:id="@+id/btn_sign_in_with_microsoft"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signin with Microsoft" />
+        <Button
+            android:id="@+id/btn_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signin" />
 
-    <Button
-        android:id="@+id/btn_sign_in_with_facebook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Signin with Facebook" />
+        <Button
+            android:id="@+id/btn_sign_in_with_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signin with Google"
+            android:onClick="@{() -> viewModel.onSignInWithGoogleCommand()}"/>
 
-    <Button
-        android:id="@+id/btn_sign_up"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign Up" />
+        <Button
+            android:id="@+id/btn_sign_in_with_microsoft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signin with Microsoft" />
 
-    <Button
-        android:id="@+id/btn_restore_account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Restore password" />
+        <Button
+            android:id="@+id/btn_sign_in_with_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Signin with Facebook" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_restore_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Restore password" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</layout>

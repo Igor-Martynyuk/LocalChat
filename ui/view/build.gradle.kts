@@ -9,6 +9,10 @@ android {
     namespace = "com.dev.martyniuk.local.chat.ui.view"
     compileSdk = 35
 
+    dataBinding{
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "com.dev.martyniuk.local.chat.ui.view"
         minSdk = 24
