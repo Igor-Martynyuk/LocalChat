@@ -15,9 +15,9 @@ class ViewModelSignIn @Inject constructor(
     private val signInCase: CaseSignIn
 ) : ViewModel(), ContractSignIn {
 
-    override fun onSignInCommand(email: String, password: String) = viewModelScope.launch {
+    override fun onSignInCommand() = viewModelScope.launch {
         signInCase
-            .getFlow(CaseSignIn.Args(email, password))
+            .getFlow(CaseSignIn.Args("email", "password"))
             .collect { }
     }.ignore()
 

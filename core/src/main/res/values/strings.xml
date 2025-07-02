@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_google">Continue with Google</string>
+    <string name="sign_in_microsoft">Continue with Microsoft</string>
+    <string name="sign_in_facebook">Continue with Facebook</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="do_not_have_account">Don`t have an account?</string>
+    <string name="or">or</string>
+</resources>
