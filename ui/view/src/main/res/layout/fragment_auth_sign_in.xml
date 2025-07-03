@@ -51,7 +51,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email" />
+                android:hint="@string/email"
+                android:singleLine="true"
+                android:text="@{viewModel.emailLData}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,7 +70,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password" />
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:text="@{viewModel.passwordLData}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,15 +88,15 @@
             app:layout_constraintEnd_toEndOf="@id/input_password"
             app:layout_constraintTop_toBottomOf="@id/input_password" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_in"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing"
             android:layout_marginEnd="@dimen/spacing_large"
-            android:text="@string/sign_in"
             android:onClick="@{() -> viewModel.onSignInCommand()}"
+            android:text="@string/sign_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_restore_account" />
@@ -125,7 +130,7 @@
             app:layout_constraintStart_toEndOf="@id/label_or"
             app:layout_constraintTop_toTopOf="@id/label_or" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_in_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -138,7 +143,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/label_or" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_in_microsoft"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -150,7 +155,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_sign_in_google" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_in_facebook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
