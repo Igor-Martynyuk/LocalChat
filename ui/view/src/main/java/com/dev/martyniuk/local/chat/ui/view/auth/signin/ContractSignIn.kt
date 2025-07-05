@@ -1,10 +1,10 @@
 package com.dev.martyniuk.local.chat.ui.view.auth.signin
 
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 interface ContractSignIn {
-    val emailLData: LiveData<String>
-    val passwordLData: LiveData<String>
+    val emailLData: MutableLiveData<String>
+    val passwordLData: MutableLiveData<String>
 
     fun onSignInCommand()
     fun onSignInWithGoogleCommand()

@@ -22,28 +22,8 @@ class ViewModelSignIn @Inject constructor(
     private val signInCase: CaseSignIn
 ) : ViewModel(), ContractSignIn {
 
-    private val emailStateFlow = MutableStateFlow("")
-    override val emailLData: LiveData<String> get() = emailStateFlow.asLiveData()
-
-    private val passwordStateFlow = MutableStateFlow("")
-    override val passwordLData: LiveData<String> get() = passwordStateFlow.asLiveData()
-
-    init {
-        viewModelScope.launch {
-            emailStateFlow.collect { Log.d("temp_log", "email:$it") }
-        }
-        viewModelScope.launch {
-            passwordStateFlow.collect { Log.d("temp_log", "password:$it") }
-        }
-    }
-
-    fun onEmailInput(value: String) {
-        emailStateFlow.value = value
-    }
-
-    fun onPasswordInput(value: String) {
-        passwordStateFlow.value = value
-    }
+    override val emailLData = MutableLiveData("")
+    override val passwordLData = MutableLiveData("")
 
     override fun onSignInCommand() = viewModelScope.launch {
         signInCase
