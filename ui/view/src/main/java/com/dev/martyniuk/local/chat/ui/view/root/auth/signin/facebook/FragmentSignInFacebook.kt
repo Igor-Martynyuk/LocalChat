@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin.google
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signin.facebook
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,10 @@ import com.dev.martyniuk.local.chat.ui.view.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FragmentSignInGoogle : Fragment() {
-    private val viewModel: ViewModelSignInGoogle by viewModels()
+class FragmentSignInFacebook : Fragment() {
+    private val viewModel: ViewModelSignInFacebook by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_sign_in_google, group, false)
+        inflater.inflate(R.layout.fragment_sign_in_facebook, group, false)
 
 }

@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signup.credentials
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.viewModels
 import com.dev.martyniuk.local.chat.ui.view.R
-import com.dev.martyniuk.local.chat.ui.view.auth.EventDispatcherAuth
+import com.dev.martyniuk.local.chat.ui.view.root.auth.EventDispatcherAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

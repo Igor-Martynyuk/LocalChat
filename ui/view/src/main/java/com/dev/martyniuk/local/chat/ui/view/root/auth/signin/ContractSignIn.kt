@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
 import androidx.lifecycle.MutableLiveData
 

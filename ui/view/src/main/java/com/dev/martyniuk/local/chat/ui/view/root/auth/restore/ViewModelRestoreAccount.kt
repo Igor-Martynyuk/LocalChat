@@ -1,8 +1,8 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin.google
+package com.dev.martyniuk.local.chat.ui.view.root.auth.restore
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModelSignInGoogle @Inject constructor() : ViewModel()
+class ViewModelRestoreAccount @Inject constructor() : ViewModel()

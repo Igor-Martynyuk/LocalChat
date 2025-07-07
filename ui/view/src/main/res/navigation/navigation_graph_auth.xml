@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/destination_auth_sign_in"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.FragmentSignIn"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.FragmentSignIn"
         tools:layout="@layout/fragment_auth_sign_in">
 
         <action
@@ -34,22 +34,22 @@
 
     <fragment
         android:id="@+id/destination_sign_in_google"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.google.FragmentSignInGoogle"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.google.FragmentSignInGoogle"
         tools:layout="@layout/fragment_sign_in_google" />
 
     <fragment
         android:id="@+id/destination_sign_in_microsoft"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.microsoft.FragmentSignInMicrosoft"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.microsoft.FragmentSignInMicrosoft"
         tools:layout="@layout/fragment_sign_in_microsoft" />
 
     <fragment
         android:id="@+id/destination_sign_in_facebook"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signin.facebook.FragmentSignInFacebook"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.facebook.FragmentSignInFacebook"
         tools:layout="@layout/fragment_sign_in_facebook" />
 
     <fragment
         android:id="@+id/destination_sign_up_credentials"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signup.credentials.FragmentSignUpCredentials"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials.FragmentSignUpCredentials"
         tools:layout="@layout/fragment_auth_sign_up_credentials">
 
         <action
@@ -60,12 +60,12 @@
 
     <fragment
         android:id="@+id/destination_sign_up_photo"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.signup.photo.FragmentSignUpPhoto"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.photo.FragmentSignUpPhoto"
         tools:layout="@layout/fragment_auth_singn_up_photo" />
 
     <fragment
         android:id="@+id/destination_auth_restore_account"
-        android:name="com.dev.martyniuk.local.chat.ui.view.auth.restore.FragmentAuthRestoreAccount"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.restore.FragmentAuthRestoreAccount"
         tools:layout="@layout/fragment_auth_restore_account" />
 
 </navigation>

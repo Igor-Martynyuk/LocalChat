@@ -1,7 +1,7 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signup.credentials
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials
 
 import androidx.lifecycle.ViewModel
-import com.dev.martyniuk.local.chat.ui.view.auth.EventDispatcherAuth
+import com.dev.martyniuk.local.chat.ui.view.root.auth.EventDispatcherAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

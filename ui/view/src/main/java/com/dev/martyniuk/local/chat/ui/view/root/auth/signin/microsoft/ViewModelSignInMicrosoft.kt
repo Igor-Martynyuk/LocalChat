@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin.microsoft
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signin.microsoft
 
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject

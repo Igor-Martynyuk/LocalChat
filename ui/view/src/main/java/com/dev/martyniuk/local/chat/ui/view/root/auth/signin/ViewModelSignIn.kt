@@ -1,11 +1,11 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.common.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
-import com.dev.martyniuk.local.chat.ui.view.auth.EventDispatcherAuth
+import com.dev.martyniuk.local.chat.ui.view.root.auth.EventDispatcherAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth
+package com.dev.martyniuk.local.chat.ui.view.root.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

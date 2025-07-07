@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin.microsoft
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signin.google
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,10 +10,10 @@ import com.dev.martyniuk.local.chat.ui.view.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FragmentSignInMicrosoft : Fragment() {
-    private val viewModel: ViewModelSignInMicrosoft by viewModels()
+class FragmentSignInGoogle : Fragment() {
+    private val viewModel: ViewModelSignInGoogle by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_sign_in_microsoft, group, false)
+        inflater.inflate(R.layout.fragment_sign_in_google, group, false)
 
 }

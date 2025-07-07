@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LocalChat">
         <activity
-            android:name=".auth.ActivityAuth"
+            android:name=".root.auth.ActivityAuth"
             android:exported="false"
             android:launchMode="singleTop" />
         <activity
-            android:name=".main.ActivityMain"
+            android:name=".root.main.ActivityMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

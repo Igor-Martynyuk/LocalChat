@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".auth.signup.photo.FragmentSignUpPhoto">
+    tools:context=".root.auth.signup.photo.FragmentSignUpPhoto">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

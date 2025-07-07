@@ -1,9 +1,8 @@
-package com.dev.martyniuk.local.chat.ui.view.main
+package com.dev.martyniuk.local.chat.ui.view.root.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
 import dagger.hilt.android.lifecycle.HiltViewModel

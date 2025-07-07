@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.auth.signin.facebook
+package com.dev.martyniuk.local.chat.ui.view.root.auth.restore
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.dev.martyniuk.local.chat.ui.view.R
-import com.dev.martyniuk.local.chat.ui.view.auth.signin.auto.facebook.ViewModelSignInFacebook
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FragmentSignInFacebook : Fragment() {
-    private val viewModel: ViewModelSignInFacebook by viewModels()
+class FragmentAuthRestoreAccount : Fragment() {
+    private val viewModel: ViewModelRestoreAccount by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_sign_in_facebook, group, false)
+        inflater.inflate(R.layout.fragment_auth_restore_account, group, false)
 
 }

@@ -2,13 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".auth.signin.FragmentSignIn">
+    tools:context=".root.auth.signin.FragmentSignIn">
 
     <data>
 
         <variable
             name="viewModel"
-            type="com.dev.martyniuk.local.chat.ui.view.auth.signin.ViewModelSignIn" />
+            type="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.ViewModelSignIn" />
 
     </data>
 

@@ -1,6 +1,5 @@
-package com.dev.martyniuk.local.chat.ui.view.auth
+package com.dev.martyniuk.local.chat.ui.view.root.auth
 
-import android.util.Log
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
