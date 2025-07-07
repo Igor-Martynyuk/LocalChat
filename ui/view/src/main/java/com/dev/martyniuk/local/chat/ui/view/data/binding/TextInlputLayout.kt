@@ -1,0 +1,18 @@
+package com.dev.martyniuk.local.chat.ui.view.data.binding
+
+import androidx.databinding.BindingAdapter
+import com.dev.martyniuk.local.chat.core.R
+import com.google.android.material.textfield.TextInputLayout
+
+private fun inputError(view: TextInputLayout, isValid: Boolean, resId: Int) {
+    view.error = if (isValid) null else view.context.resources.getString(resId)
+    view.isErrorEnabled = isValid.not()
+}
+
+@BindingAdapter("emailValidation")
+fun emailInputError(view: TextInputLayout, showError: Boolean) =
+    inputError(view, showError, R.string.sign_in_invalid_email)
+
+@BindingAdapter("passwordValidation")
+fun passwordInputError(view: TextInputLayout, showError: Boolean) =
+    inputError(view, showError, R.string.sign_in_invalid_password)

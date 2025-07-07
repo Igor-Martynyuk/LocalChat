@@ -13,8 +13,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class FragmentSignIn : Fragment() {
     private val viewModel: ViewModelSignIn by viewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View? =
+    override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View =
         FragmentAuthSignInBinding.inflate(inflater)
-            .also { it.viewModel = this.viewModel }
+            .also {
+                it.lifecycleOwner = this
+                it.viewModel = this.viewModel
+            }
             .root
 }
