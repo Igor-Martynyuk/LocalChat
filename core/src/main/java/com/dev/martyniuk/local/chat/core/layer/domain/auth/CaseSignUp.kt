@@ -16,7 +16,7 @@ class CaseSignUp @Inject constructor(
 ) : CaseAuthorize<CaseSignUp.Args>() {
 
     interface RemotePort {
-        suspend fun createAccount(
+        fun createAccount(
             email: String,
             password: String,
             photoUrl: String
@@ -29,7 +29,7 @@ class CaseSignUp @Inject constructor(
         val photoUrl: String
     )
 
-    override suspend fun getFlow(args: Args) = remotePort
+    override fun getFlow(args: Args) = remotePort
         .createAccount(args.emailAddress, args.password, args.photoUrl)
         .flatMapConcat(localPort::writeUser)
 

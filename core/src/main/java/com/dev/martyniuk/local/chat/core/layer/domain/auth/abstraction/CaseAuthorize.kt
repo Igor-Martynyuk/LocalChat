@@ -6,8 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 abstract class CaseAuthorize<A> : UseCase<A, Unit>() {
     interface LocalPort {
-        suspend fun writeUser(
-            user: DtoUserAccount
-        ): Flow<Unit>
+        fun writeUser(user: DtoUserAccount): Flow<Unit>
     }
 }

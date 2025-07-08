@@ -28,7 +28,7 @@ class CaseSignIn @Inject constructor(
         ): Flow<DtoUserAccount>
     }
 
-    override suspend fun getFlow(args: Args) = remotePort
+    override fun getFlow(args: Args) = remotePort
         .getAccount(args.email, args.password)
         .flatMapConcat(localPort::writeUser)
 }

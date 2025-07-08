@@ -15,5 +15,5 @@ class CaseSubscribeIsAuthorized @Inject constructor(
         fun subscribeLoggedUser(): Flow<DtoUserAccount?>
     }
 
-    override suspend fun getFlow(args: Unit) = localPort.subscribeLoggedUser().map { it != null }
+    override fun getFlow(args: Unit) = localPort.subscribeLoggedUser().map { it != null }
 }

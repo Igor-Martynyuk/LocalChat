@@ -4,5 +4,5 @@ import kotlinx.coroutines.flow.Flow
 
 
 abstract class UseCase<A, R> {
-    abstract suspend fun getFlow(args: A): Flow<R>
+    abstract fun getFlow(args: A): Flow<R>
 }
