@@ -17,6 +17,7 @@ class ViewModelSignIn @Inject constructor(
     private val eventDispatcher: EventDispatcherAuth,
     private val signInCase: CaseSignIn
 ) : ViewModel(), ContractSignIn {
+    private val context = viewModelScope.coroutineContext
     private val regexEmail = Regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$")
     private val regexPassword = Regex("^(?=.*[A-Za-z])(?=.*\\d).{8,}\$")
 
@@ -24,19 +25,19 @@ class ViewModelSignIn @Inject constructor(
     override val isEmailValid = email.map { it.matches(regexEmail) }
     private val _isEmailErrorEnabled = MutableLiveData(false)
     override val showEmailInputError = _isEmailErrorEnabled
-        .combineExt(isEmailValid, viewModelScope, ::validationWhenEnabled)
-        .combineExt(email.map { it.isNotEmpty() }, viewModelScope, ::validationWhenNotEmpty)
+        .combineExt(isEmailValid, context, ::validationWhenEnabled)
+        .combineExt(email.map { it.isNotEmpty() }, context, ::validationWhenNotEmpty)
 
 
     override val password = MutableLiveData("")
     override val isPasswordValid = password.map { it.matches(regexPassword) }
     private val _isPasswordErrorEnabled = MutableLiveData(false)
     override val showPasswordInputError = _isPasswordErrorEnabled
-        .combineExt(isPasswordValid, viewModelScope, ::validationWhenEnabled)
-        .combineExt(password.map { it.isNotEmpty() }, viewModelScope, ::validationWhenNotEmpty)
+        .combineExt(isPasswordValid, context, ::validationWhenEnabled)
+        .combineExt(password.map { it.isNotEmpty() }, context, ::validationWhenNotEmpty)
 
     override val isSignInEnabled =
-        isEmailValid.combineExt(isPasswordValid, viewModelScope) { emailValid, passwordValid ->
+        isEmailValid.combineExt(isPasswordValid, context) { emailValid, passwordValid ->
             emailValid && passwordValid
         }
 
