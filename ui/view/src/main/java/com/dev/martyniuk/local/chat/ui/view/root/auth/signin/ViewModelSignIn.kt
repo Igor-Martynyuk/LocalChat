@@ -35,11 +35,11 @@ class ViewModelSignIn @Inject constructor(
         .combineLatestExt(isPasswordValid, ::validationWhenEnabled)
         .combineLatestExt(password.map { it.isNotEmpty() }, ::validationWhenNotEmpty)
 
-    fun enableEmailValidation() {
+    override fun enableEmailValidation() {
         _isEmailErrorEnabled.value = true
     }
 
-    fun enablePasswordValidation() {
+    override fun enablePasswordValidation() {
         _isPasswordErrorEnabled.value = true
     }
 

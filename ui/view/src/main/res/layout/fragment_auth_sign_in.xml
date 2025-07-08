@@ -10,6 +10,14 @@
             name="contract"
             type="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.ViewModelSignIn" />
 
+        <variable
+            name="onEmailFocused"
+            type="Runnable" />
+
+        <variable
+            name="onPasswordFocused"
+            type="Runnable" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -44,10 +52,10 @@
             android:layout_marginStart="@dimen/spacing"
             android:layout_marginTop="@dimen/spacing_large"
             android:layout_marginEnd="@dimen/spacing"
+            app:emailValidation="@{contract.showEmailInputError}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/output_logo_text"
-            app:emailValidation="@{contract.showEmailInputError}">
+            app:layout_constraintTop_toBottomOf="@id/output_logo_text">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
@@ -56,7 +64,8 @@
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:text="@={contract.email}" />
+                android:text="@={contract.email}"
+                app:onFocusedListener="@{onEmailFocused}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,7 +87,8 @@
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:text="@={contract.password}" />
+                android:text="@={contract.password}"
+                app:onFocusedListener="@{onPasswordFocused}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
