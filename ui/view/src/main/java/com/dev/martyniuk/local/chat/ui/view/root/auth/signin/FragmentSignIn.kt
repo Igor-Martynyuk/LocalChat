@@ -30,13 +30,8 @@ class FragmentSignIn : Fragment() {
 
         OnFocusChangeListener { view, isFocused ->
             when (view.id) {
-                R.id.input_email ->
-                    if (isFocused) viewModel.enableEmailValidation()
-                    else viewModel.disableEmailValidation()
-
-                R.id.input_password ->
-                    if (isFocused) viewModel.enablePasswordValidation()
-                    else viewModel.disablePasswordValidation()
+                R.id.input_email -> if (isFocused) viewModel.enableEmailValidation()
+                R.id.input_password -> if (isFocused) viewModel.enablePasswordValidation()
             }
         }.let {
             binding.inputEmail.onFocusChangeListener = it
