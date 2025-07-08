@@ -6,6 +6,8 @@ import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.common.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
+import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
+import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
 import com.dev.martyniuk.local.chat.ui.view.ext.combineExt
 import com.dev.martyniuk.local.chat.ui.view.root.auth.EventDispatcherAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,14 +17,14 @@ import javax.inject.Inject
 @HiltViewModel
 class ViewModelSignIn @Inject constructor(
     private val eventDispatcher: EventDispatcherAuth,
+    private val validateEmailCase: CaseValidateEmail,
+    private val validatePasswordCase: CaseValidatePassword,
     private val signInCase: CaseSignIn
 ) : ViewModel(), ContractSignIn {
     private val context = viewModelScope.coroutineContext
-    private val regexEmail = Regex("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$")
-    private val regexPassword = Regex("^(?=.*[A-Za-z])(?=.*\\d).{8,}\$")
 
     override val email = MutableLiveData("")
-    override val isEmailValid = email.map { it.matches(regexEmail) }
+    override val isEmailValid = email.map { validateEmailCase.execute(it) }
     private val _isEmailErrorEnabled = MutableLiveData(false)
     override val showEmailInputError = _isEmailErrorEnabled
         .combineExt(isEmailValid, context, ::validationWhenEnabled)
@@ -30,7 +32,7 @@ class ViewModelSignIn @Inject constructor(
 
 
     override val password = MutableLiveData("")
-    override val isPasswordValid = password.map { it.matches(regexPassword) }
+    override val isPasswordValid = password.map { validatePasswordCase.execute(it) }
     private val _isPasswordErrorEnabled = MutableLiveData(false)
     override val showPasswordInputError = _isPasswordErrorEnabled
         .combineExt(isPasswordValid, context, ::validationWhenEnabled)
@@ -72,7 +74,7 @@ class ViewModelSignIn @Inject constructor(
 
     override fun onSignInCommand() = viewModelScope.launch {
         signInCase
-            .getFlow(CaseSignIn.Args(email.value!!, password.value!!))
+            .execute(CaseSignIn.Args(email.value!!, password.value!!))
             .collect { }
     }.ignore()
 }

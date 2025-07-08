@@ -1,7 +1,7 @@
 package com.dev.martyniuk.local.chat.core.layer.domain.auth
 
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuthorize
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuth
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 class CaseSignUp @Inject constructor(
     private val remotePort: RemotePort,
     private val localPort: LocalPort,
-) : CaseAuthorize<CaseSignUp.Args>() {
+) : CaseAuth<CaseSignUp.Args>() {
 
     interface RemotePort {
         fun createAccount(
@@ -29,7 +29,7 @@ class CaseSignUp @Inject constructor(
         val photoUrl: String
     )
 
-    override fun getFlow(args: Args) = remotePort
+    override fun execute(args: Args) = remotePort
         .createAccount(args.emailAddress, args.password, args.photoUrl)
         .flatMapConcat(localPort::writeUser)
 

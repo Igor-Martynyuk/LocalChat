@@ -5,7 +5,7 @@ import com.dev.martyniuk.local.chat.core.layer.data.GatewayFirebase
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUp
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuthorize
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuth
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,7 +18,7 @@ interface DataModule {
 
     @Binds
     @Singleton
-    fun bindAuthorizeLocalPort(impl: GatewayDB): CaseAuthorize.LocalPort
+    fun bindAuthorizeLocalPort(impl: GatewayDB): CaseAuth.LocalPort
 
     @Binds
     @Singleton
