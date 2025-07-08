@@ -22,13 +22,24 @@ class ViewModelSignIn @Inject constructor(
 
     override val email = MutableLiveData("")
     override val isEmailValid = email.map { it.matches(regexEmail) }
+    private val _isEmailErrorEnabled = MutableLiveData(false)
+    override val showEmailInputError =
+        _isEmailErrorEnabled.combineLatestExt(isEmailValid, ::showError)
+
 
     override val password = MutableLiveData("")
     override val isPasswordValid = password.map { it.matches(regexPassword) }
+    private val _isPasswordErrorEnabled = MutableLiveData(false)
+    override val showPasswordInputError =
+        _isPasswordErrorEnabled.combineLatestExt(isPasswordValid, ::showError)
 
-    override val isLoginEnabled = isEmailValid.combineLatestExt(isPasswordValid) { first, second ->
-        first && second
-    }
+    fun enableEmailValidation(){ _isEmailErrorEnabled.value = true }
+    fun disableEmailValidation(){ _isEmailErrorEnabled.value = false }
+
+    fun enablePasswordValidation(){ _isPasswordErrorEnabled.value = true }
+    fun disablePasswordValidation(){ _isPasswordErrorEnabled.value = false }
+
+    private fun showError(isEnabled: Boolean, hasError: Boolean) = isEnabled && hasError.not()
 
     override fun onSignInWithGoogleCommand() =
         eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithGoogle).ignore()

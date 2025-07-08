@@ -38,18 +38,19 @@
             app:layout_constraintTop_toBottomOf="@id/output_logo" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_email"
+            android:id="@+id/container_input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing"
             android:layout_marginTop="@dimen/spacing_large"
             android:layout_marginEnd="@dimen/spacing"
-            app:emailValidation="@{viewModel.isEmailValid()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/output_logo_text">
+            app:layout_constraintTop_toBottomOf="@id/output_logo_text"
+            app:emailValidation="@{viewModel.showEmailInputError}">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
@@ -60,17 +61,18 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_password"
+            android:id="@+id/container_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing"
             android:layout_marginEnd="@dimen/spacing"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_email"
-            app:passwordValidation="@{viewModel.isPasswordValid()}">
+            app:layout_constraintTop_toBottomOf="@id/container_input_email"
+            app:passwordValidation="@{viewModel.showPasswordInputError}">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
@@ -88,8 +90,8 @@
             android:paddingTop="@dimen/spacing_small"
             android:paddingBottom="@dimen/spacing_small"
             android:text="@string/forgot_password"
-            app:layout_constraintEnd_toEndOf="@id/input_password"
-            app:layout_constraintTop_toBottomOf="@id/input_password" />
+            app:layout_constraintEnd_toEndOf="@id/container_input_password"
+            app:layout_constraintTop_toBottomOf="@id/container_input_password" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_sign_in"
@@ -98,9 +100,9 @@
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing"
             android:layout_marginEnd="@dimen/spacing_large"
+            android:enabled="@{viewModel.isEmailValid &amp;&amp; viewModel.isPasswordValid}"
             android:onClick="@{() -> viewModel.onSignInCommand()}"
             android:text="@string/sign_in"
-            android:enabled="@{viewModel.isLoginEnabled()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_restore_account" />

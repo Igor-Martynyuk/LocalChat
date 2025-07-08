@@ -6,9 +6,11 @@ import androidx.lifecycle.MutableLiveData
 interface ContractSignIn {
     val email: MutableLiveData<String>
     val isEmailValid: LiveData<Boolean>
+    val showEmailInputError: LiveData<Boolean>
+
     val password: MutableLiveData<String>
     val isPasswordValid: LiveData<Boolean>
-    val isLoginEnabled: LiveData<Boolean>
+    val showPasswordInputError: LiveData<Boolean>
 
     fun onSignInCommand()
     fun onSignInWithGoogleCommand()
