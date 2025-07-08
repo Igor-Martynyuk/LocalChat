@@ -4,8 +4,9 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
-    <string name="sign_in_invalid_email">Invalid email address.\nEmail format is: user-name@domain.top-level-domain</string>
-    <string name="sign_in_invalid_password">Password should contain at least 8 characters\nand include at least one letter and one number</string>
+    <string name="sign_in_email_invalid">Invalid email address.\nEmail format is: user-name@domain.top-level-domain</string>
+    <string name="sign_in_password_invalid">Password should contain at least 8 characters\nand include at least one letter and one number</string>
+    <string name="sign_in_password_confirm">Confirm password</string>
     <string name="sign_in_google">Continue with Google</string>
     <string name="sign_in_microsoft">Continue with Microsoft</string>
     <string name="sign_in_facebook">Continue with Facebook</string>

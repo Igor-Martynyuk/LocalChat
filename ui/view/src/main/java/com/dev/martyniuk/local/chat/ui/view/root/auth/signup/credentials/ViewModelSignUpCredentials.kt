@@ -8,7 +8,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ViewModelSignUpCredentials @Inject constructor(
     val eventDispatcher: EventDispatcherAuth
-) : ViewModel() {
+) : ViewModel(), ContractSignUpCredentials {
 
     fun onSetupPhotoCommand() =
         eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignUpPhoto)

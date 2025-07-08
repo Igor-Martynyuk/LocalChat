@@ -4,7 +4,7 @@
     <dimen name="spacing">16dp</dimen>
     <dimen name="spacing_large">32dp</dimen>
 
-    <dimen name="special_auth_account_strokes_width">128dp</dimen>
+    <dimen name="special_auth_account_strokes_width">96dp</dimen>
 
     <dimen name="stroke_small">0.5dp</dimen>
     <dimen name="stroke">1dp</dimen>
