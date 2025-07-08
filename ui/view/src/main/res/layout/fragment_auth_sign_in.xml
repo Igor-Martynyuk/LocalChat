@@ -7,7 +7,7 @@
     <data>
 
         <variable
-            name="viewModel"
+            name="contract"
             type="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.ViewModelSignIn" />
 
     </data>
@@ -47,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/output_logo_text"
-            app:emailValidation="@{viewModel.showEmailInputError}">
+            app:emailValidation="@{contract.showEmailInputError}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_email"
@@ -56,7 +56,7 @@
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:text="@={viewModel.email}" />
+                android:text="@={contract.email}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +69,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/container_input_email"
-            app:passwordValidation="@{viewModel.showPasswordInputError}">
+            app:passwordValidation="@{contract.showPasswordInputError}">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/input_password"
@@ -78,7 +78,7 @@
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:text="@={viewModel.password}" />
+                android:text="@={contract.password}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +86,7 @@
             android:id="@+id/btn_restore_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onRestoreAccountCommand()}"
+            android:onClick="@{() -> contract.onRestoreAccountCommand()}"
             android:paddingTop="@dimen/spacing_small"
             android:paddingBottom="@dimen/spacing_small"
             android:text="@string/forgot_password"
@@ -100,8 +100,8 @@
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing"
             android:layout_marginEnd="@dimen/spacing_large"
-            android:enabled="@{viewModel.isEmailValid &amp;&amp; viewModel.isPasswordValid}"
-            android:onClick="@{() -> viewModel.onSignInCommand()}"
+            android:enabled="@{contract.isEmailValid &amp;&amp; contract.isPasswordValid}"
+            android:onClick="@{() -> contract.onSignInCommand()}"
             android:text="@string/sign_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +143,7 @@
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing_small"
             android:layout_marginEnd="@dimen/spacing_large"
-            android:onClick="@{() -> viewModel.onSignInWithGoogleCommand()}"
+            android:onClick="@{() -> contract.onSignInWithGoogleCommand()}"
             android:text="@string/sign_in_google"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginEnd="@dimen/spacing_large"
-            android:onClick="@{() -> viewModel.onSignInWithMicrosoft()}"
+            android:onClick="@{() -> contract.onSignInWithMicrosoft()}"
             android:text="@string/sign_in_microsoft"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginEnd="@dimen/spacing_large"
-            android:onClick="@{() -> viewModel.onSignInWithFacebook()}"
+            android:onClick="@{() -> contract.onSignInWithFacebook()}"
             android:text="@string/sign_in_facebook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -188,7 +188,7 @@
             android:id="@+id/btn_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.onSignUpCommand()}"
+            android:onClick="@{() -> contract.onSignUpCommand()}"
             android:padding="@dimen/spacing_small"
             android:text="@string/sign_up"
             android:textColor="?attr/colorAccent"

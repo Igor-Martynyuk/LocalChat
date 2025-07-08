@@ -20,7 +20,7 @@ class FragmentSignIn : Fragment() {
         FragmentAuthSignInBinding.inflate(inflater)
             .also {
                 it.lifecycleOwner = this
-                it.viewModel = this.viewModel
+                it.contract = this.viewModel
                 binding = it
             }
             .root
