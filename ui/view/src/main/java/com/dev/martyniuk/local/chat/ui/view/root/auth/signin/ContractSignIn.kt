@@ -12,8 +12,8 @@ interface ContractSignIn {
     val isPasswordValid: LiveData<Boolean>
     val showPasswordInputError: LiveData<Boolean>
 
-    fun enableEmailValidation()
-    fun enablePasswordValidation()
+    val isSignInEnabled: LiveData<Boolean>
+
     fun onSignInCommand()
     fun onSignInWithGoogleCommand()
     fun onSignInWithMicrosoft()

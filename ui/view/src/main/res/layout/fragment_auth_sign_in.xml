@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-36dp"
-            android:text="LocalChat"
+            android:text="@string/app_name_common"
             android:textSize="48sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +88,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:text="@={contract.password}"
-                app:onFocusedListener="@{onPasswordFocused}"/>
+                app:onFocusedListener="@{onPasswordFocused}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +110,7 @@
             android:layout_marginStart="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing"
             android:layout_marginEnd="@dimen/spacing_large"
-            android:enabled="@{contract.isEmailValid &amp;&amp; contract.isPasswordValid}"
+            android:enabled="@{contract.isSignInEnabled()}"
             android:onClick="@{() -> contract.onSignInCommand()}"
             android:text="@string/sign_in"
             app:layout_constraintEnd_toEndOf="parent"

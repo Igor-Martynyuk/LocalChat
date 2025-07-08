@@ -1,5 +1,6 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
@@ -35,11 +36,14 @@ class ViewModelSignIn @Inject constructor(
         .combineLatestExt(isPasswordValid, ::validationWhenEnabled)
         .combineLatestExt(password.map { it.isNotEmpty() }, ::validationWhenNotEmpty)
 
-    override fun enableEmailValidation() {
+    override val isSignInEnabled = isEmailValid
+        .combineLatestExt(isPasswordValid) { emailValid, passwordValid -> emailValid && passwordValid }
+
+    fun enableEmailValidation() {
         _isEmailErrorEnabled.value = true
     }
 
-    override fun enablePasswordValidation() {
+    fun enablePasswordValidation() {
         _isPasswordErrorEnabled.value = true
     }
 
@@ -66,7 +70,7 @@ class ViewModelSignIn @Inject constructor(
 
     override fun onSignInCommand() = viewModelScope.launch {
         signInCase
-            .getFlow(CaseSignIn.Args("email", "password"))
+            .getFlow(CaseSignIn.Args(email.value!!, password.value!!))
             .collect { }
     }.ignore()
 }
