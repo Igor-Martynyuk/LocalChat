@@ -14,7 +14,7 @@ import javax.inject.Singleton
 class CaseSignIn @Inject constructor(
     private val remotePort: RemotePort,
     private val localPort: CaseAuthorize.LocalPort
-) : UseCase<CaseSignIn.Args, Unit>() {
+) : UseCase<CaseSignIn.Args, Flow<Unit>>() {
 
     data class Args(
         val email: String,

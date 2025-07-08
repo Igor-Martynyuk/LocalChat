@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Singleton
 class CaseSubscribeIsAuthorized @Inject constructor(
     private val localPort: LocalPort
-) : UseCase<Unit, Boolean>() {
+) : UseCase<Unit, Flow<Boolean>>() {
     interface LocalPort {
         fun subscribeLoggedUser(): Flow<DtoUserAccount?>
     }
