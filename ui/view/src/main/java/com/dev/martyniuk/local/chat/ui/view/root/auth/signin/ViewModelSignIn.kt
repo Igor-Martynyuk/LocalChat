@@ -6,7 +6,7 @@ import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.common.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignIn
-import com.dev.martyniuk.local.chat.ui.view.ext.combineLatestExt
+import com.dev.martyniuk.local.chat.ui.view.ext.combineExt
 import com.dev.martyniuk.local.chat.ui.view.root.auth.EventDispatcherAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -24,19 +24,21 @@ class ViewModelSignIn @Inject constructor(
     override val isEmailValid = email.map { it.matches(regexEmail) }
     private val _isEmailErrorEnabled = MutableLiveData(false)
     override val showEmailInputError = _isEmailErrorEnabled
-        .combineLatestExt(isEmailValid, ::validationWhenEnabled)
-        .combineLatestExt(email.map { it.isNotEmpty() }, ::validationWhenNotEmpty)
+        .combineExt(isEmailValid, viewModelScope, ::validationWhenEnabled)
+        .combineExt(email.map { it.isNotEmpty() }, viewModelScope, ::validationWhenNotEmpty)
 
 
     override val password = MutableLiveData("")
     override val isPasswordValid = password.map { it.matches(regexPassword) }
     private val _isPasswordErrorEnabled = MutableLiveData(false)
     override val showPasswordInputError = _isPasswordErrorEnabled
-        .combineLatestExt(isPasswordValid, ::validationWhenEnabled)
-        .combineLatestExt(password.map { it.isNotEmpty() }, ::validationWhenNotEmpty)
+        .combineExt(isPasswordValid, viewModelScope, ::validationWhenEnabled)
+        .combineExt(password.map { it.isNotEmpty() }, viewModelScope, ::validationWhenNotEmpty)
 
-    override val isSignInEnabled = isEmailValid
-        .combineLatestExt(isPasswordValid) { emailValid, passwordValid -> emailValid && passwordValid }
+    override val isSignInEnabled =
+        isEmailValid.combineExt(isPasswordValid, viewModelScope) { emailValid, passwordValid ->
+            emailValid && passwordValid
+        }
 
     fun enableEmailValidation() {
         _isEmailErrorEnabled.value = true
