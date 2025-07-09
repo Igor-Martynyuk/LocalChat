@@ -10,8 +10,8 @@ import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSignUpCreden
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FragmentSignUpCredentials : Fragment() {
-    private val viewModel: ViewModelSignUpCredentials by viewModels()
+class FragmentSignUp : Fragment() {
+    private val viewModel: ViewModelSignUp by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View =
         FragmentAuthSignUpCredentialsBinding.inflate(inflater)

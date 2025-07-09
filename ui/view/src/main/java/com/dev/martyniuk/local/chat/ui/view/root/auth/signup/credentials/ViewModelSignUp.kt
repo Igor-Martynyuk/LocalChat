@@ -12,11 +12,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModelSignUpCredentials @Inject constructor(
+class ViewModelSignUp @Inject constructor(
     private val eventDispatcher: DispatcherNavigationAuth,
     validateEmailCase: CaseValidateEmail,
     validatePasswordCase: CaseValidatePassword
-) : ViewModelCredentials(validateEmailCase, validatePasswordCase), ContractSignUpCredentials {
+) : ViewModelCredentials(validateEmailCase, validatePasswordCase), ContractSignUp {
     override val confirmation = MutableLiveData("")
     private val isConfirmValid = confirmation.combineExt(password, context, ::confirmPassword)
     private val isConfirmValidationEnabled = MutableLiveData(false)

@@ -1,7 +1,6 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +47,7 @@ class ActivityAuth : AppCompatActivity() {
                         DispatcherNavigationAuth.Route.SignInWithGoogle -> R.id.action_auth_sign_in_to_google
                         DispatcherNavigationAuth.Route.SignInWithMicrosoft -> R.id.action_auth_sign_in_to_microsoft
                         DispatcherNavigationAuth.Route.SignInWithFacebook -> R.id.action_auth_sign_in_to_facebook
-                        DispatcherNavigationAuth.Route.SignUpCredentials -> R.id.action_auth_sign_in_to_sign_up_credentials
+                        DispatcherNavigationAuth.Route.SignUp -> R.id.action_auth_sign_in_to_sign_up_credentials
                         DispatcherNavigationAuth.Route.SignUpPhoto -> R.id.action_auth_sign_up_credentials_to_photo
                         DispatcherNavigationAuth.Route.RestoreAccount -> R.id.action_auth_sign_in_to_restore_account
                         else -> throw UnsupportedOperationException("Unsupported navigation event received")

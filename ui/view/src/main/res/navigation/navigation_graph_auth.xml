@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/destination_sign_up_credentials"
-        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials.FragmentSignUpCredentials"
+        android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials.FragmentSignUp"
         tools:layout="@layout/fragment_auth_sign_up_credentials">
 
         <action

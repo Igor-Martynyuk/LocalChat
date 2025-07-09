@@ -1,8 +1,5 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.common.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
@@ -38,7 +35,7 @@ class ViewModelSignIn @Inject constructor(
         eventDispatcher.send(DispatcherNavigationAuth.Route.SignInWithFacebook).ignore()
 
     override fun onSignUpCommand() =
-        eventDispatcher.send(DispatcherNavigationAuth.Route.SignUpCredentials).ignore()
+        eventDispatcher.send(DispatcherNavigationAuth.Route.SignUp).ignore()
 
     override fun onRestoreAccountCommand() =
         eventDispatcher.send(DispatcherNavigationAuth.Route.RestoreAccount).ignore()
