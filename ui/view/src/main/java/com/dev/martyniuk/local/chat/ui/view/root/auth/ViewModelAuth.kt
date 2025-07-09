@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
+import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherAuthNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
@@ -12,10 +13,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelAuth @Inject constructor(
-    eventDispatcher: EventDispatcherAuth,
+    eventDispatcher: DispatcherAuthNavigation,
     subscribeIsAuthorizedCase: CaseSubscribeIsAuthorized
 ) : ViewModel() {
-    val events = eventDispatcher.events.asLiveData()
+    val events = eventDispatcher.flow.asLiveData()
 
     private val _isAuthorized = MutableSharedFlow<Boolean>(extraBufferCapacity = 1, replay = 0)
     val isAuthorized: LiveData<Boolean> get() = _isAuthorized.asLiveData()

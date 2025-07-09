@@ -9,14 +9,14 @@ import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
 import com.dev.martyniuk.local.chat.ui.view.ext.combineExt
-import com.dev.martyniuk.local.chat.ui.view.root.auth.EventDispatcherAuth
+import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherAuthNavigation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ViewModelSignIn @Inject constructor(
-    private val eventDispatcher: EventDispatcherAuth,
+    private val eventDispatcher: DispatcherAuthNavigation,
     private val validateEmailCase: CaseValidateEmail,
     private val validatePasswordCase: CaseValidatePassword,
     private val signInCase: CaseSignInAsync
@@ -58,19 +58,19 @@ class ViewModelSignIn @Inject constructor(
         isInvalid && isNotEmpty
 
     override fun onSignInWithGoogleCommand() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithGoogle).ignore()
+        eventDispatcher.send(DispatcherAuthNavigation.Route.SignInWithGoogle).ignore()
 
     override fun onSignInWithMicrosoft() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithMicrosoft).ignore()
+        eventDispatcher.send(DispatcherAuthNavigation.Route.SignInWithMicrosoft).ignore()
 
     override fun onSignInWithFacebook() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignInWithFacebook).ignore()
+        eventDispatcher.send(DispatcherAuthNavigation.Route.SignInWithFacebook).ignore()
 
     override fun onSignUpCommand() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.SignUpCredentials).ignore()
+        eventDispatcher.send(DispatcherAuthNavigation.Route.SignUpCredentials).ignore()
 
     override fun onRestoreAccountCommand() =
-        eventDispatcher.send(EventDispatcherAuth.NavigationCommand.RestoreAccount).ignore()
+        eventDispatcher.send(DispatcherAuthNavigation.Route.RestoreAccount).ignore()
 
     override fun onSignInCommand() = viewModelScope.launch {
         signInCase.flow(CaseSignInAsync.Args(email.value!!, password.value!!)).collect { }
