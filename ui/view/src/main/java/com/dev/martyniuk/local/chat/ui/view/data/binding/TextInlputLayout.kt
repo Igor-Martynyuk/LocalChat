@@ -16,3 +16,8 @@ fun emailInputError(view: TextInputLayout, showError: Boolean) =
 @BindingAdapter("passwordValidation")
 fun passwordInputError(view: TextInputLayout, showError: Boolean) =
     inputError(view, showError, R.string.sign_in_password_invalid)
+
+@BindingAdapter("confirmValidation")
+fun confirmInputError(view: TextInputLayout, showError: Boolean) {
+    inputError(view, showError, R.string.sign_in_password_confirm_invalid)
+}

@@ -42,7 +42,6 @@ class ActivityAuth : AppCompatActivity() {
             viewModel.isAuthorized.observe(this@ActivityAuth) { if (it) finish() }
 
             viewModel.events.observe(this@ActivityAuth) {
-                Log.d("temp_log", "we are here")
                 if (it.isNull()) return@observe
                 controller.navigate(
                     when (it) {

@@ -18,6 +18,9 @@ class FragmentSignUpCredentials : Fragment() {
             .also {
                 it.lifecycleOwner = this
                 it.contract = viewModel
+                it.onEmailFocused = Runnable { viewModel.enableEmailValidation() }
+                it.onPasswordFocused = Runnable { viewModel.enablePasswordValidation() }
+                it.onConfirmationFocused = Runnable { viewModel.enableConfirmValidation() }
             }
             .root
 }
