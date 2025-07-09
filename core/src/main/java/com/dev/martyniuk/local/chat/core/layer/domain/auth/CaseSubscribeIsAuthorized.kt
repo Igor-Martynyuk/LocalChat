@@ -1,6 +1,6 @@
 package com.dev.martyniuk.local.chat.core.layer.domain.auth
 
-import com.dev.martyniuk.local.chat.core.layer.domain.UseCase
+import com.dev.martyniuk.local.chat.core.layer.domain.abstraction.UseCase
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
