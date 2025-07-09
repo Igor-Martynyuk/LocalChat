@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSignUpCredentialsBinding
+import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSignUpBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,7 +14,7 @@ class FragmentSignUp : Fragment() {
     private val viewModel: ViewModelSignUp by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View =
-        FragmentAuthSignUpCredentialsBinding.inflate(inflater)
+        FragmentAuthSignUpBinding.inflate(inflater)
             .also {
                 it.lifecycleOwner = this
                 it.contract = viewModel
@@ -23,4 +23,5 @@ class FragmentSignUp : Fragment() {
                 it.onConfirmationFocused = Runnable { viewModel.enableConfirmValidation() }
             }
             .root
+
 }

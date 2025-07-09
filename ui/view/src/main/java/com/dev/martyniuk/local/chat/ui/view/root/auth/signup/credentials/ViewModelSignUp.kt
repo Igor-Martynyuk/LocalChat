@@ -17,6 +17,8 @@ class ViewModelSignUp @Inject constructor(
     validateEmailCase: CaseValidateEmail,
     validatePasswordCase: CaseValidatePassword
 ) : ViewModelCredentials(validateEmailCase, validatePasswordCase), ContractSignUp {
+
+
     override val confirmation = MutableLiveData("")
     private val isConfirmValid = confirmation.combineExt(password, context, ::confirmPassword)
     private val isConfirmValidationEnabled = MutableLiveData(false)
