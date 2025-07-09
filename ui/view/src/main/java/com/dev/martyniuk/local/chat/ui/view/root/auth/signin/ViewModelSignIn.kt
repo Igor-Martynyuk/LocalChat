@@ -10,6 +10,7 @@ import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEma
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
 import com.dev.martyniuk.local.chat.ui.view.ext.combineExt
 import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth
+import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,45 +18,15 @@ import javax.inject.Inject
 @HiltViewModel
 class ViewModelSignIn @Inject constructor(
     private val eventDispatcher: DispatcherNavigationAuth,
-    private val validateEmailCase: CaseValidateEmail,
-    private val validatePasswordCase: CaseValidatePassword,
-    private val signInCase: CaseSignInAsync
-) : ViewModel(), ContractSignIn {
-    private val context = viewModelScope.coroutineContext
-
-    override val email = MutableLiveData("")
-    override val isEmailValid = email.map { validateEmailCase.invoke(it) }
-    private val _isEmailErrorEnabled = MutableLiveData(false)
-    override val showEmailInputError = _isEmailErrorEnabled
-        .combineExt(isEmailValid, context, ::validationWhenEnabled)
-        .combineExt(email.map { it.isNotEmpty() }, context, ::validationWhenNotEmpty)
-
-
-    override val password = MutableLiveData("")
-    override val isPasswordValid = password.map { validatePasswordCase.invoke(it) }
-    private val _isPasswordErrorEnabled = MutableLiveData(false)
-    override val showPasswordInputError = _isPasswordErrorEnabled
-        .combineExt(isPasswordValid, context, ::validationWhenEnabled)
-        .combineExt(password.map { it.isNotEmpty() }, context, ::validationWhenNotEmpty)
+    private val signInCase: CaseSignInAsync,
+    validateEmailCase: CaseValidateEmail,
+    validatePasswordCase: CaseValidatePassword
+) : ViewModelCredentials(validateEmailCase, validatePasswordCase), ContractSignIn {
 
     override val isSignInEnabled =
         isEmailValid.combineExt(isPasswordValid, context) { emailValid, passwordValid ->
             emailValid && passwordValid
         }
-
-    fun enableEmailValidation() {
-        _isEmailErrorEnabled.value = true
-    }
-
-    fun enablePasswordValidation() {
-        _isPasswordErrorEnabled.value = true
-    }
-
-    private fun validationWhenEnabled(isEnabled: Boolean, isValid: Boolean) =
-        isEnabled && isValid.not()
-
-    private fun validationWhenNotEmpty(isInvalid: Boolean, isNotEmpty: Boolean) =
-        isInvalid && isNotEmpty
 
     override fun onSignInWithGoogleCommand() =
         eventDispatcher.send(DispatcherNavigationAuth.Route.SignInWithGoogle).ignore()

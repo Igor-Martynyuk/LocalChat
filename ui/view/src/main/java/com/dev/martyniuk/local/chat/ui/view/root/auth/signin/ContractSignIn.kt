@@ -1,17 +1,9 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ContractCredentials
 
-interface ContractSignIn {
-    val email: MutableLiveData<String>
-    val isEmailValid: LiveData<Boolean>
-    val showEmailInputError: LiveData<Boolean>
-
-    val password: MutableLiveData<String>
-    val isPasswordValid: LiveData<Boolean>
-    val showPasswordInputError: LiveData<Boolean>
-
+interface ContractSignIn : ContractCredentials {
     val isSignInEnabled: LiveData<Boolean>
 
     fun onSignInCommand()
