@@ -23,7 +23,7 @@ class ViewModelAuth @Inject constructor(
 
     init {
         viewModelScope.launch {
-            subscribeIsAuthorizedCase.getFlow(Unit).collect(_isAuthorized::emit)
+            subscribeIsAuthorizedCase.invoke(Unit).collect(_isAuthorized::emit)
         }
     }
 }

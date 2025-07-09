@@ -1,7 +1,8 @@
 package com.dev.martyniuk.local.chat.core.layer.domain.validation
 
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.abstraction.CaseValidateString
-import javax.inject.Singleton
+import dagger.hilt.android.scopes.ViewModelScoped
+import javax.inject.Inject
 
-@Singleton
-class CaseValidatePassword : CaseValidateString("^(?=.*[A-Za-z])(?=.*\\d).{8,}\$")
+@ViewModelScoped
+class CaseValidatePassword @Inject constructor() :
+    CaseValidateString("^(?=.*[A-Za-z])(?=.*\\d).{8,}\$")

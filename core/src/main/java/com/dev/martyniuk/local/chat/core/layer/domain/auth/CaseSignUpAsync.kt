@@ -1,22 +1,21 @@
 package com.dev.martyniuk.local.chat.core.layer.domain.auth
 
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuth
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapConcat
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
+@ViewModelScoped
 @OptIn(ExperimentalCoroutinesApi::class)
-class CaseSignUp @Inject constructor(
+class CaseSignUpAsync @Inject constructor(
     private val remotePort: RemotePort,
     private val localPort: LocalPort,
-) : CaseAuth<CaseSignUp.Args>() {
+) : CaseAuthAsync<CaseSignUpAsync.Args>() {
 
     interface RemotePort {
-        fun createAccount(
+        suspend fun createAccount(
             email: String,
             password: String,
             photoUrl: String
@@ -29,7 +28,7 @@ class CaseSignUp @Inject constructor(
         val photoUrl: String
     )
 
-    override fun execute(args: Args) = remotePort
+    override suspend fun flow(args: Args) = remotePort
         .createAccount(args.emailAddress, args.password, args.photoUrl)
         .flatMapConcat(localPort::writeUser)
 

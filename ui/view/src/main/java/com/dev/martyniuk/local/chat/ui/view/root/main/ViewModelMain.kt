@@ -21,7 +21,7 @@ class ViewModelMain @Inject constructor(
     init {
         viewModelScope.launch {
             observeAuthorizationCase
-                .getFlow(Unit)
+                .invoke(Unit)
                 .flowOn(Dispatchers.IO)
                 .collect { _isAuthenticated.value = it }
         }

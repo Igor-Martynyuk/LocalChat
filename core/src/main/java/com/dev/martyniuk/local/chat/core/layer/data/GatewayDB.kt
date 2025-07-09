@@ -1,7 +1,7 @@
 package com.dev.martyniuk.local.chat.core.layer.data
 
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.abstraction.CaseAuth
+import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseAuthAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +12,7 @@ import kotlin.random.Random
 
 @Singleton
 class GatewayDB @Inject constructor() :
-    CaseAuth.LocalPort,
+    CaseAuthAsync.LocalPort,
     CaseSubscribeIsAuthorized.LocalPort {
     private val userFlow = MutableStateFlow<DtoUserAccount?>(null)
 
