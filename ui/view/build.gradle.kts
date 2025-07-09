@@ -58,6 +58,7 @@ dependencies {
     kapt(libs.hilt.compiler)
     //other
     implementation(libs.material)
+    implementation(libs.arthurhub.imgcropper)
     //test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

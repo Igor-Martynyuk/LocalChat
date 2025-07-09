@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".root.auth.signup.photo.FragmentSignUpPhoto">
 
+    <com.canhub.cropper.CropImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/spacing"
+        app:layout_constraintBottom_toTopOf="@id/btn_select_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_select_photo"
         android:layout_width="0dp"
