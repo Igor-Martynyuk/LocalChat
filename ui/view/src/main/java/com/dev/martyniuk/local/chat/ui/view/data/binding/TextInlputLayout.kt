@@ -11,13 +11,13 @@ private fun inputError(view: TextInputLayout, showError: Boolean, resId: Int) {
 
 @BindingAdapter("emailValidation")
 fun emailInputError(view: TextInputLayout, showError: Boolean) =
-    inputError(view, showError, R.string.sign_in_email_invalid)
+    inputError(view, showError, R.string.auth_email_invalid)
 
 @BindingAdapter("passwordValidation")
 fun passwordInputError(view: TextInputLayout, showError: Boolean) =
-    inputError(view, showError, R.string.sign_in_password_invalid)
+    inputError(view, showError, R.string.auth_password_invalid)
 
 @BindingAdapter("confirmValidation")
 fun confirmInputError(view: TextInputLayout, showError: Boolean) {
-    inputError(view, showError, R.string.sign_in_password_confirm_invalid)
+    inputError(view, showError, R.string.auth_password_confirm_invalid)
 }

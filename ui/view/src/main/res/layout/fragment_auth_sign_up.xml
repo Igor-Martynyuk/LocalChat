@@ -49,12 +49,29 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/decoration_input_display_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/decoration_input_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/auth_display_name"
+                android:text="@={contract.displayName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/decoration_input_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/decoration_input_email"
+            app:layout_constraintTop_toBottomOf="@id/decoration_input_display_name"
             app:passwordValidation="@{contract.showPasswordInputError}">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -79,7 +96,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/sign_in_password_confirm"
+                android:hint="@string/auth_password_confirm"
                 android:inputType="textPassword"
                 android:text="@={contract.confirmation}"
                 app:onFocusedListener="@{onConfirmationFocused}" />
@@ -90,9 +107,9 @@
             android:id="@+id/btn_navigate_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/next"
             android:enabled="@{contract.isNextStepEnabled}"
             android:onClick="@{() -> contract.onNextStepCommand()}"
+            android:text="@string/next"
             app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -101,7 +118,7 @@
             android:id="@+id/label_sign_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/already_have_account"
+            android:text="@string/sign_in_already_have_account"
             app:layout_constraintBottom_toBottomOf="@id/space_sign_in"
             app:layout_constraintEnd_toStartOf="@id/space_sign_in"
             app:layout_constraintHorizontal_chainStyle="packed"

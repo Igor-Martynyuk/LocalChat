@@ -17,7 +17,8 @@ class ViewModelSignUp @Inject constructor(
     validateEmailCase: CaseValidateEmail,
     validatePasswordCase: CaseValidatePassword
 ) : ViewModelCredentials(validateEmailCase, validatePasswordCase), ContractSignUp {
-
+    override val displayName = MutableLiveData("")
+    private val isDisplayNameValid = displayName.map { it.isNotEmpty() }
 
     override val confirmation = MutableLiveData("")
     private val isConfirmValid = confirmation.combineExt(password, context, ::confirmPassword)
@@ -28,6 +29,7 @@ class ViewModelSignUp @Inject constructor(
         .combineExt(confirmation.map { it.isNotEmpty() }, context, ::and)
 
     override val isNextStepEnabled = isEmailValid
+        .combineExt(isDisplayNameValid, context, ::and)
         .combineExt(isPasswordValid, context, ::and)
         .combineExt(isConfirmValid, context, ::and)
 

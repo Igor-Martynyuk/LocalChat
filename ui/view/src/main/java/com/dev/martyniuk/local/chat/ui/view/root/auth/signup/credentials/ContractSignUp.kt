@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ContractCredentials
 
 interface ContractSignUp : ContractCredentials {
+    val displayName: MutableLiveData<String>
+
     val confirmation: MutableLiveData<String>
     val showConfirmInputError: LiveData<Boolean>
     val isNextStepEnabled: LiveData<Boolean>
