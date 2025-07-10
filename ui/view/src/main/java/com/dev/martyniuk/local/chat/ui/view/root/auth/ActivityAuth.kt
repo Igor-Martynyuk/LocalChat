@@ -32,7 +32,7 @@ class ActivityAuth : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.isAuthorized.observe(this@ActivityAuth) { if (it) finish() }
             viewModel.events.observe(this@ActivityAuth) { event ->
-                event.peek()?.let {
+                event.consume {
                     controller.navigate(
                         when (it) {
                             DispatcherNavigationAuth.Route.SignInWithGoogle -> R.id.action_auth_sign_in_to_google
@@ -54,6 +54,10 @@ class ActivityAuth : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_auth)
         setupSystemInsets()
+    }
+
+    override fun onResume() {
+        super.onResume()
         setupObservers()
     }
 }
