@@ -10,6 +10,10 @@
             name="contract"
             type="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.photo.ContractSignUpPhoto" />
 
+        <variable
+            name="selectPhotoClickHandler"
+            type="Runnable" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +25,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="@dimen/spacing"
+            app:bitmap="@{contract.bitmap}"
             app:layout_constraintBottom_toTopOf="@id/btn_select_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/sign_up_select_photo"
+            android:onClick="@{() -> selectPhotoClickHandler.run()}"
             app:layout_constraintBottom_toTopOf="@id/btn_take_photo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

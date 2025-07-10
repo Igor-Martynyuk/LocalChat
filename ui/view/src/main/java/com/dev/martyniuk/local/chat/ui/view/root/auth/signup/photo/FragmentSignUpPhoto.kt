@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSingnUpPhotoBinding
@@ -12,7 +13,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FragmentSignUpPhoto : Fragment() {
     private val viewModel: ViewModelSignUpPhoto by viewModels()
-    private lateinit var binding: FragmentAuthSingnUpPhotoBinding
+    private val getPhotoCommand = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        it?.let { uri -> viewModel.onUriReceived(uri) }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View =
         FragmentAuthSingnUpPhotoBinding
@@ -20,8 +23,7 @@ class FragmentSignUpPhoto : Fragment() {
             .also {
                 it.lifecycleOwner = this
                 it.contract = viewModel
-
-                binding = it
+                it.selectPhotoClickHandler = Runnable { getPhotoCommand.launch("image/*") }
             }
             .root
 }
