@@ -7,6 +7,7 @@ import javax.inject.Inject
 @ActivityRetainedScoped
 class DispatcherNavigationAuth @Inject constructor() : UiEventDispatcher<Route>() {
     enum class Route {
+        SignIn,
         SignInWithGoogle,
         SignInWithMicrosoft,
         SignInWithFacebook,

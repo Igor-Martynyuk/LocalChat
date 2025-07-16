@@ -1,149 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".root.auth.signup.credentials.FragmentSignUp">
 
-    <data>
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/layout_display_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <variable
-            name="contract"
-            type="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials.ContractSignUp" />
-
-        <variable
-            name="onEmailFocused"
-            type="Runnable" />
-
-        <variable
-            name="onPasswordFocused"
-            type="Runnable" />
-
-        <variable
-            name="onConfirmationFocused"
-            type="Runnable" />
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/decoration_input_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_small"
-            app:emailValidation="@{contract.showEmailInputError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:text="@={contract.email}"
-                app:onFocusedListener="@{onEmailFocused}" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/decoration_input_display_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_small"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/decoration_input_email">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/auth_display_name"
-                android:text="@={contract.displayName}" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/decoration_input_password"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/decoration_input_display_name"
-            app:passwordValidation="@{contract.showPasswordInputError}">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:text="@={contract.password}"
-                app:onFocusedListener="@{onPasswordFocused}" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/decoration_input_confirmation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:confirmValidation="@{contract.showConfirmInputError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/decoration_input_password">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/auth_password_confirm"
-                android:inputType="textPassword"
-                android:text="@={contract.confirmation}"
-                app:onFocusedListener="@{onConfirmationFocused}" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_navigate_next"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_display_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="@{contract.isNextStepEnabled}"
-            android:onClick="@{() -> contract.onNextStepCommand()}"
-            android:text="@string/next"
-            app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:hint="@string/auth_display_name" />
 
-        <TextView
-            android:id="@+id/label_sign_in"
-            android:layout_width="wrap_content"
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
+
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/layout_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_display_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sign_in_already_have_account"
-            app:layout_constraintBottom_toBottomOf="@id/space_sign_in"
-            app:layout_constraintEnd_toStartOf="@id/space_sign_in"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_sign_in" />
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
 
-        <Space
-            android:id="@+id/space_sign_in"
-            android:layout_width="@dimen/spacing_small"
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
+
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/layout_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_password"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn_sign_in"
-            app:layout_constraintStart_toEndOf="@id/label_sign_in" />
+            android:hint="@string/password"
+            android:inputType="textPassword" />
 
-        <TextView
-            android:id="@+id/btn_sign_in"
-            android:layout_width="wrap_content"
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
+
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/layout_password_confirmation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_password_confirmation"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_small"
-            android:text="@string/sign_in"
-            android:textColor="?attr/colorAccent"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/space_sign_in" />
+            android:hint="@string/auth_password_confirm"
+            android:inputType="textPassword" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_navigate_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/label_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_already_have_account"
+        app:layout_constraintBottom_toBottomOf="@id/space_sign_in"
+        app:layout_constraintEnd_toStartOf="@id/space_sign_in"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_sign_in" />
+
+    <Space
+        android:id="@+id/space_sign_in"
+        android:layout_width="@dimen/spacing_small"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_sign_in"
+        app:layout_constraintStart_toEndOf="@id/label_sign_in" />
+
+    <TextView
+        android:id="@+id/btn_sign_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_small"
+        android:text="@string/sign_in"
+        android:textColor="?attr/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/space_sign_in" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,8 @@ android {
     namespace = "com.dev.martyniuk.local.chat.ui.view"
     compileSdk = 35
 
-    dataBinding{
-        enable = true
+    buildFeatures {
+        viewBinding = true
     }
 
     defaultConfig {

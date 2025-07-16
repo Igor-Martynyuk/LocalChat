@@ -1,10 +1,13 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
 import com.dev.martyniuk.local.chat.core.common.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
+import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateDisplayName
 import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth
 import com.dev.martyniuk.local.chat.ui.view.ext.combineExt
 import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
@@ -15,31 +18,20 @@ import javax.inject.Inject
 class ViewModelSignUp @Inject constructor(
     private val eventDispatcher: DispatcherNavigationAuth,
     validateEmailCase: CaseValidateEmail,
-    validatePasswordCase: CaseValidatePassword
-) : ViewModelCredentials(validateEmailCase, validatePasswordCase), ContractSignUp {
-    override val displayName = MutableLiveData("")
-    private val isDisplayNameValid = displayName.map { it.isNotEmpty() }
+    validatePasswordCase: CaseValidatePassword,
+    validateDisplayNameCase: CaseValidateDisplayName
+) : ViewModelCredentials(validateEmailCase, validatePasswordCase) {
+    private val _displayName = MutableLiveData("")
+    val displayName = _displayName.distinctUntilChanged()
+    val isDisplayNameValid = displayName.map(validateDisplayNameCase::invoke)
+    fun onInputDisplayName(value: String) { _displayName.value = value }
 
-    override val confirmation = MutableLiveData("")
-    private val isConfirmValid = confirmation.combineExt(password, context, ::confirmPassword)
-    private val isConfirmValidationEnabled = MutableLiveData(false)
+    private val _confirmation = MutableLiveData("")
+    val confirmation = _confirmation.distinctUntilChanged()
+    val isConfirmationValid = confirmation.map { it == pass.value }
+    fun onInputPassConfirmation(value: String){ _confirmation.value = value }
 
-    override val showConfirmInputError = isConfirmValidationEnabled
-        .combineExt(isConfirmValid.map { it.not() }, context, ::and)
-        .combineExt(confirmation.map { it.isNotEmpty() }, context, ::and)
-
-    override val isNextStepEnabled = isEmailValid
-        .combineExt(isDisplayNameValid, context, ::and)
-        .combineExt(isPasswordValid, context, ::and)
-        .combineExt(isConfirmValid, context, ::and)
-
-    private fun and(first: Boolean, second: Boolean) = first && second
-    private fun confirmPassword(pass: String, confirmation: String) = pass == confirmation
-
-    override fun enableConfirmValidation() {
-        isConfirmValidationEnabled.value = true
-    }
-
-    override fun onNextStepCommand() =
-        eventDispatcher.send(DispatcherNavigationAuth.Route.SignUpPhoto).ignore()
+    val isFormFilled = isEmailValid.combineExt(isConfirmationValid, viewModelScope.coroutineContext, Boolean::and)
+    fun onNextCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignUpPhoto).ignore()
+    fun onSignInCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignIn).ignore()
 }

@@ -23,8 +23,8 @@
             app:destination="@id/destination_sign_in_facebook" />
 
         <action
-            android:id="@+id/action_auth_sign_in_to_sign_up_credentials"
-            app:destination="@id/destination_sign_up_credentials" />
+            android:id="@+id/action_auth_sign_in_to_sign_up"
+            app:destination="@id/destination_sign_up" />
 
         <action
             android:id="@+id/action_auth_sign_in_to_restore_account"
@@ -48,7 +48,7 @@
         tools:layout="@layout/fragment_sign_in_facebook" />
 
     <fragment
-        android:id="@+id/destination_sign_up_credentials"
+        android:id="@+id/destination_sign_up"
         android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials.FragmentSignUp"
         tools:layout="@layout/fragment_auth_sign_up">
 
@@ -61,7 +61,7 @@
     <fragment
         android:id="@+id/destination_sign_up_photo"
         android:name="com.dev.martyniuk.local.chat.ui.view.root.auth.signup.photo.FragmentSignUpPhoto"
-        tools:layout="@layout/fragment_auth_singn_up_photo" />
+        tools:layout="@layout/fragment_auth_sign_up_photo" />
 
     <fragment
         android:id="@+id/destination_auth_restore_account"

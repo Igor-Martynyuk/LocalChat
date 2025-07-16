@@ -1,178 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".root.auth.signin.FragmentSignIn">
 
-    <data>
-
-        <variable
-            name="contract"
-            type="com.dev.martyniuk.local.chat.ui.view.root.auth.signin.ViewModelSignIn" />
-
-        <variable
-            name="onEmailFocused"
-            type="Runnable" />
-
-        <variable
-            name="onPasswordFocused"
-            type="Runnable" />
-
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/input_email_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/container_input_email"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:emailValidation="@{contract.showEmailInputError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:singleLine="true"
-                android:text="@={contract.email}"
-                app:onFocusedListener="@{onEmailFocused}" />
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/input_password_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_email_layout">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/container_input_password"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/container_input_email"
-            app:passwordValidation="@{contract.showPasswordInputError}">
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLines="1" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:text="@={contract.password}"
-                app:onFocusedListener="@{onPasswordFocused}" />
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/btn_restore_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/spacing_small"
+        android:paddingBottom="@dimen/spacing_small"
+        android:text="@string/sign_in_forgot_password"
+        app:layout_constraintEnd_toEndOf="@id/input_password_layout"
+        app:layout_constraintTop_toBottomOf="@id/input_password_layout" />
 
-        <TextView
-            android:id="@+id/btn_restore_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> contract.onRestoreAccountCommand()}"
-            android:paddingTop="@dimen/spacing_small"
-            android:paddingBottom="@dimen/spacing_small"
-            android:text="@string/sign_in_forgot_password"
-            app:layout_constraintEnd_toEndOf="@id/container_input_password"
-            app:layout_constraintTop_toBottomOf="@id/container_input_password" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing"
+        android:text="@string/sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_restore_account" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_sign_in"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing"
-            android:enabled="@{contract.isSignInEnabled()}"
-            android:onClick="@{() -> contract.onSignInCommand()}"
-            android:text="@string/sign_in"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_restore_account" />
+    <TextView
+        android:id="@+id/label_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:text="@string/or"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_in" />
 
-        <TextView
-            android:id="@+id/label_or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:text="@string/or"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_sign_in" />
+    <View
+        android:layout_width="@dimen/special_auth_account_strokes_width"
+        android:layout_height="@dimen/stroke_large"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@id/label_or"
+        app:layout_constraintEnd_toStartOf="@id/label_or"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/label_or" />
 
-        <View
-            android:layout_width="@dimen/special_auth_account_strokes_width"
-            android:layout_height="@dimen/stroke_large"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toBottomOf="@id/label_or"
-            app:layout_constraintEnd_toStartOf="@id/label_or"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/label_or" />
+    <View
+        android:layout_width="@dimen/special_auth_account_strokes_width"
+        android:layout_height="@dimen/stroke_large"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@id/label_or"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_or"
+        app:layout_constraintTop_toTopOf="@id/label_or" />
 
-        <View
-            android:layout_width="@dimen/special_auth_account_strokes_width"
-            android:layout_height="@dimen/stroke_large"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintBottom_toBottomOf="@id/label_or"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/label_or"
-            app:layout_constraintTop_toTopOf="@id/label_or" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_in_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:text="@string/sign_in_google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_or" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_sign_in_google"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_small"
-            android:onClick="@{() -> contract.onSignInWithGoogleCommand()}"
-            android:text="@string/sign_in_google"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/label_or" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_in_microsoft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_microsoft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_in_google" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_sign_in_microsoft"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> contract.onSignInWithMicrosoft()}"
-            android:text="@string/sign_in_microsoft"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_sign_in_google" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_in_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in_facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sign_in_microsoft" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_sign_in_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> contract.onSignInWithFacebook()}"
-            android:text="@string/sign_in_facebook"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_sign_in_microsoft" />
+    <TextView
+        android:id="@+id/label_do_not_have_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/spacing_small"
+        android:text="@string/sign_in_do_not_have_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_sign_up"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/label_do_not_have_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/spacing_small"
-            android:text="@string/sign_in_do_not_have_account"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/btn_sign_up"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/btn_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_small"
+        android:text="@string/sign_up"
+        android:textColor="?attr/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_do_not_have_account" />
 
-        <TextView
-            android:id="@+id/btn_sign_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> contract.onSignUpCommand()}"
-            android:padding="@dimen/spacing_small"
-            android:text="@string/sign_up"
-            android:textColor="?attr/colorAccent"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/label_do_not_have_account" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
