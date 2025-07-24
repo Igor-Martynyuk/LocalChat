@@ -1,7 +1,7 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.common.extensions.ignore
+import com.dev.martyniuk.local.chat.core.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword

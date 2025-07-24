@@ -1,10 +1,10 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.common.extensions.ignore
+import com.dev.martyniuk.local.chat.core.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateDisplayName

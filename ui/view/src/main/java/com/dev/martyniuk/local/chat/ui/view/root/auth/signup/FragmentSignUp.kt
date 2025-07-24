@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.credentials
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater

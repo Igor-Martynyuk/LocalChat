@@ -5,8 +5,8 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.util.AttributeSet
 import androidx.core.widget.doAfterTextChanged
-import com.dev.martyniuk.local.chat.core.common.extensions.isNull
-import com.dev.martyniuk.local.chat.core.common.extensions.toInt
+import com.dev.martyniuk.local.chat.core.extensions.isNull
+import com.dev.martyniuk.local.chat.core.extensions.toInt
 import com.google.android.material.textfield.TextInputLayout
 
 //A TextInputLayout, ignoring errors on empty or non-focused field
