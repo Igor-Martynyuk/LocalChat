@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateDisplayName
@@ -32,6 +31,7 @@ class ViewModelSignUp @Inject constructor(
     fun onInputPassConfirmation(value: String){ _confirmation.value = value }
 
     val isFormFilled = isEmailValid.combineExt(isConfirmationValid, viewModelScope.coroutineContext, Boolean::and)
-    fun onNextCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignUpPhoto).ignore()
-    fun onSignInCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignIn).ignore()
+    fun onNextCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignUpPhoto)
+
+    fun onSignInCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignIn)
 }

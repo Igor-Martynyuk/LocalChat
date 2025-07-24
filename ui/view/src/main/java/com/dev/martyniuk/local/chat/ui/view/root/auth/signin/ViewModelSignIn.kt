@@ -1,7 +1,6 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.extensions.ignore
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
@@ -23,13 +22,12 @@ class ViewModelSignIn @Inject constructor(
     val isSignInEnabled = isEmailValid
         .combineExt(isPassValid, viewModelScope.coroutineContext, Boolean::and)
 
-    fun onSignInWithGoogleCommand() = eventDispatcher.send(Route.SignInWithGoogle).ignore()
-    fun onSignInWithMicrosoft() = eventDispatcher.send(Route.SignInWithMicrosoft).ignore()
-    fun onSignInWithFacebook() = eventDispatcher.send(Route.SignInWithFacebook).ignore()
-    fun onSignUpCommand() = eventDispatcher.send(Route.SignUp).ignore()
-    fun onRestoreAccountCommand() = eventDispatcher.send(Route.RestoreAccount).ignore()
+    fun onSignInWithGoogleCommand() = eventDispatcher.send(Route.SignInWithGoogle)
+    fun onSignInWithMicrosoft() = eventDispatcher.send(Route.SignInWithMicrosoft)
+    fun onSignInWithFacebook() = eventDispatcher.send(Route.SignInWithFacebook)
+    fun onSignUpCommand() = eventDispatcher.send(Route.SignUp)
+    fun onRestoreAccountCommand() = eventDispatcher.send(Route.RestoreAccount)
 
-    fun onSignInCommand() = viewModelScope.launch {
-        signInCase.flow(CaseSignInAsync.Args(email.value!!, pass.value!!)).collect { }
-    }.ignore()
+    fun onSignInCommand() = viewModelScope
+        .launch { signInCase.flow(CaseSignInAsync.Args(email.value!!, pass.value!!)).collect { } }
 }
