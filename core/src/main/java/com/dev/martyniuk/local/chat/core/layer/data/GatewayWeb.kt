@@ -14,7 +14,7 @@ import javax.inject.Singleton
 class GatewayWeb @Inject constructor() : CaseLoadBitmap.PortIn {
     private val client = OkHttpClient()
 
-    override suspend fun readBitmap(uri: Uri) = flow {
+    override suspend fun loadBitmap(uri: Uri) = flow {
         val response = client.newCall(
             Request.Builder()
                 .url(uri.toString())

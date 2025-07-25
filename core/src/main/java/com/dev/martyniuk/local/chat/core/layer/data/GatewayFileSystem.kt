@@ -9,8 +9,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GatewayFS @Inject constructor() : CaseLoadBitmap.PortIn {
-    override suspend fun readBitmap(uri: Uri) = flow {
+class GatewayFileSystem @Inject constructor() : CaseLoadBitmap.PortIn {
+    override suspend fun loadBitmap(uri: Uri) = flow {
         val file = uri.toFile()
 
         if (file.exists()) emit(BitmapFactory.decodeFile(file.absolutePath))

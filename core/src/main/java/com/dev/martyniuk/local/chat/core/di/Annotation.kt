@@ -4,8 +4,12 @@ import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class Local
+annotation class SourceFS
 
 @Qualifier
 @Retention(AnnotationRetention.RUNTIME)
-annotation class Remote
+annotation class SourceOS
+
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class SourceRemote

@@ -1,7 +1,7 @@
 package com.dev.martyniuk.local.chat.core.di
 
-import com.dev.martyniuk.local.chat.core.layer.data.GatewayDB
-import com.dev.martyniuk.local.chat.core.layer.data.GatewayFS
+import com.dev.martyniuk.local.chat.core.layer.data.GatewayAndroid
+import com.dev.martyniuk.local.chat.core.layer.data.GatewayFileSystem
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayFirebase
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayWeb
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
@@ -21,7 +21,7 @@ interface DataModule {
 
     @Binds
     @Singleton
-    fun bindAuthorizeLocalPort(impl: GatewayDB): CaseAuthAsync.LocalPort
+    fun bindAuthorizeLocalPort(impl: GatewayAndroid): CaseAuthAsync.LocalPort
 
     @Binds
     @Singleton
@@ -33,15 +33,20 @@ interface DataModule {
 
     @Binds
     @Singleton
-    fun bindLocalIsAuthorizedLocalPort(impl: GatewayDB): CaseSubscribeIsAuthorized.LocalPort
+    fun bindLocalIsAuthorizedLocalPort(impl: GatewayAndroid): CaseSubscribeIsAuthorized.LocalPort
 
     @Binds
     @Singleton
-    @Remote
+    @SourceRemote
     fun bindRemoteImgInPort(impl: GatewayWeb): CaseLoadBitmap.PortIn
 
     @Binds
     @Singleton
-    @Local
-    fun bindLocalImgInPort(impl: GatewayFS): CaseLoadBitmap.PortIn
+    @SourceOS
+    fun bindOsImgInPort(impl: GatewayAndroid): CaseLoadBitmap.PortIn
+
+    @Binds
+    @Singleton
+    @SourceFS
+    fun bindFSImgInPort(impl: GatewayFileSystem): CaseLoadBitmap.PortIn
 }
