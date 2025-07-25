@@ -1,11 +1,14 @@
 package com.dev.martyniuk.local.chat.core.di
 
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayDB
+import com.dev.martyniuk.local.chat.core.layer.data.GatewayFS
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayFirebase
+import com.dev.martyniuk.local.chat.core.layer.data.GatewayWeb
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUpAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseAuthAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.img.CaseLoadBitmap
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -32,4 +35,13 @@ interface DataModule {
     @Singleton
     fun bindLocalIsAuthorizedLocalPort(impl: GatewayDB): CaseSubscribeIsAuthorized.LocalPort
 
+    @Binds
+    @Singleton
+    @Remote
+    fun bindRemoteImgInPort(impl: GatewayWeb): CaseLoadBitmap.PortIn
+
+    @Binds
+    @Singleton
+    @Local
+    fun bindLocalImgInPort(impl: GatewayFS): CaseLoadBitmap.PortIn
 }

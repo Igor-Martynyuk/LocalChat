@@ -40,6 +40,8 @@ dependencies {
     //di
     implementation(libs.hilt.core)
     kapt(libs.hilt.compiler)
+    //retrofit
+    implementation(libs.squareup.okhttp)
     //firebase
     implementation(platform(libs.firebase.core))
     implementation(libs.firebase.auth)

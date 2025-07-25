@@ -12,11 +12,20 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentSignUpPhoto : Fragment() {
+    private lateinit var binding: FragmentAuthSignUpPhotoBinding
     private val viewModel: ViewModelSignUpPhoto by viewModels()
-    private val getPhotoCommand = registerForActivityResult(ActivityResultContracts.GetContent()) {
-        it?.let { uri -> viewModel.onUriReceived(uri) }
-    }
+    private val getPhotoCommand = registerForActivityResult(
+        ActivityResultContracts.GetContent(),
+        { binding.imgCropView.setImageUriAsync(it) }
+    )
 
     override fun onCreateView(inflater: LayoutInflater, group: ViewGroup?, state: Bundle?): View =
-        FragmentAuthSignUpPhotoBinding.inflate(inflater).root
+        FragmentAuthSignUpPhotoBinding.inflate(inflater).also { binding = it }.root
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.bitmap.observe(viewLifecycleOwner, binding.imgCropView::setImageBitmap)
+
+        binding.btnSelectPhoto.setOnClickListener { getPhotoCommand.launch("image/*") }
+    }
 }

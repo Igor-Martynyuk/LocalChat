@@ -11,7 +11,6 @@ import com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class FragmentSignIn : FragmentCredentials() {
     private lateinit var binding: FragmentAuthSignInBinding

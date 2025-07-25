@@ -29,5 +29,5 @@ class ViewModelSignIn @Inject constructor(
     fun onRestoreAccountCommand() = eventDispatcher.send(Route.RestoreAccount)
 
     fun onSignInCommand() = viewModelScope
-        .launch { signInCase.flow(CaseSignInAsync.Args(email.value!!, pass.value!!)).collect { } }
+        .launch { signInCase.buildFlow(CaseSignInAsync.Args(email.value!!, pass.value!!)).collect { } }
 }

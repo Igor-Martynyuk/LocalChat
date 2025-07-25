@@ -28,7 +28,7 @@ class CaseSignUpAsync @Inject constructor(
         val photoUrl: String
     )
 
-    override suspend fun flow(args: Args) = remotePort
+    override suspend fun buildFlow(args: Args) = remotePort
         .createAccount(args.emailAddress, args.password, args.photoUrl)
         .flatMapConcat(localPort::writeUser)
 
