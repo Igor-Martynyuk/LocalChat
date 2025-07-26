@@ -38,7 +38,10 @@ class ActivityAuth : AppCompatActivity() {
                         DispatcherNavigationAuth.Route.SignInWithGoogle -> controller.navigate(R.id.action_auth_sign_in_to_google)
                         DispatcherNavigationAuth.Route.SignInWithMicrosoft -> controller.navigate(R.id.action_auth_sign_in_to_microsoft)
                         DispatcherNavigationAuth.Route.SignInWithFacebook -> controller.navigate(R.id.action_auth_sign_in_to_facebook)
-                        DispatcherNavigationAuth.Route.SignUp -> controller.navigate(R.id.action_auth_sign_in_to_sign_up)
+                        DispatcherNavigationAuth.Route.SignUp -> {
+                            controller.navigate(R.id.action_auth_sign_in_to_sign_up)
+                            controller.navigate(R.id.action_auth_sign_up_credentials_to_photo)
+                        }
                         DispatcherNavigationAuth.Route.SignUpPhoto -> controller.navigate(R.id.action_auth_sign_up_credentials_to_photo)
                         DispatcherNavigationAuth.Route.RestoreAccount -> controller.navigate(R.id.action_auth_sign_in_to_restore_account)
                         else -> throw UnsupportedOperationException("Unsupported navigation event received")

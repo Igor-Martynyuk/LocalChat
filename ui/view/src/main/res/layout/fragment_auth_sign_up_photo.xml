@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".root.auth.signup.photo.FragmentSignUpPhoto">
 
+    <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
+        android:id="@+id/layout_img_url"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/auth_img_file_url"
+        app:layout_constraintBottom_toTopOf="@id/img_crop_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/input_img_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textUri" />
+
+    </com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout>
+
     <com.canhub.cropper.CropImageView
         android:id="@+id/img_crop_view"
         android:layout_width="0dp"
@@ -14,7 +33,7 @@
         app:layout_constraintBottom_toTopOf="@id/btn_select_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/layout_img_url" />
 
     <com.canhub.cropper.CropImageView
         android:layout_width="0dp"

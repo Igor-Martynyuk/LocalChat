@@ -8,7 +8,7 @@ import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEma
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
 import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateDisplayName
 import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth
-import com.dev.martyniuk.local.chat.ui.view.ext.combineExt
+import com.dev.martyniuk.local.chat.ui.view.ext.combine
 import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -30,7 +30,7 @@ class ViewModelSignUp @Inject constructor(
     val isConfirmationValid = confirmation.map { it == pass.value }
     fun onInputPassConfirmation(value: String){ _confirmation.value = value }
 
-    val isFormFilled = isEmailValid.combineExt(isConfirmationValid, viewModelScope.coroutineContext, Boolean::and)
+    val isFormFilled = isEmailValid.combine(isConfirmationValid, viewModelScope.coroutineContext, Boolean::and)
     fun onNextCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignUpPhoto)
 
     fun onSignInCommand() = eventDispatcher.send(DispatcherNavigationAuth.Route.SignIn)

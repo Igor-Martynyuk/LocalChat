@@ -13,6 +13,8 @@
     <string name="auth_password_confirm_invalid">Password does not match confirmation</string>
     <string name="auth_display_name">Display name</string>
     <string name="auth_display_name_invalid">Username must contain at least one letter, and can include spaces, dashes, dots, or underscores. But no special characters like @ or #</string>
+    <string name="auth_img_file_url">Image file URL</string>
+    <string name="auth_img_file_url_invalid">The URL must begin with a supported protocol\n(http, https, or ftp) without spaces</string>
 
     <string name="sign_in">Sign In</string>
     <string name="sign_in_forgot_password">Forgot password?</string>

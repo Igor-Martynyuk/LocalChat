@@ -21,10 +21,8 @@ class GatewayWeb @Inject constructor() : CaseLoadBitmap.PortIn {
                 .build()
         ).execute()
 
-        with(response) {
-            if (isSuccessful) emit(body.bytes().let { BitmapFactory.decodeByteArray(it, 0, it.size) })
-            else throw HttpException(code)
-            close()
-        }
+        if (response.isSuccessful) emit(response.body.bytes().let { BitmapFactory.decodeByteArray(it, 0, it.size) })
+        else throw HttpException(response.code)
+        response.close()
     }
 }

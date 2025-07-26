@@ -26,7 +26,7 @@ class CaseLoadBitmap @Inject constructor(
     }
 
     override suspend fun buildFlow(args: Uri) = when {
-        args.isHttp().or(args.isHttps()).or(args.isFTP()) -> remote.loadBitmap(args)
+        args.isHttp() || args.isHttps() || args.isFTP() -> remote.loadBitmap(args)
         args.isContent() -> os.loadBitmap(args)
         args.isFile() -> fs.loadBitmap(args)
         else -> throw UnsupportedOperationException(
