@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction
+package com.dev.martyniuk.local.chat.ui.view.root.auth
 
 import android.os.Bundle
 import android.view.View

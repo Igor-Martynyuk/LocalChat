@@ -7,7 +7,7 @@ import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.Case
 import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth
 import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth.Route
 import com.dev.martyniuk.local.chat.ui.view.ext.combine
-import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
+import com.dev.martyniuk.local.chat.ui.view.root.auth.ViewModelCredentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

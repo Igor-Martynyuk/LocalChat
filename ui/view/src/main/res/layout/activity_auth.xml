@@ -8,7 +8,7 @@
     android:layout_margin="@dimen/spacing"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".root.auth.ActivityAuth">
+    tools:context=".root.auth.activity.ActivityAuth">
 
     <ImageView
         android:id="@+id/output_logo"

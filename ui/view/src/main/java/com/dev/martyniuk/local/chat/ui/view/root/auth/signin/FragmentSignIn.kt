@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSignInBinding
-import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.FragmentCredentials
+import com.dev.martyniuk.local.chat.ui.view.root.auth.FragmentCredentials
 import com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint

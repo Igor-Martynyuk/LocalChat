@@ -8,7 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dev.martyniuk.local.chat.ui.view.R
-import com.dev.martyniuk.local.chat.ui.view.root.auth.ActivityAuth
+import com.dev.martyniuk.local.chat.ui.view.root.auth.activity.ActivityAuth
+import com.dev.martyniuk.local.chat.ui.view.root.main.activity.ViewModelMain
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

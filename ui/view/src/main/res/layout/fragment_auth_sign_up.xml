@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".root.auth.signup.FragmentSignUp">
+    tools:context=".root.auth.signup.root.FragmentSignUp">
 
     <com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
         android:id="@+id/layout_display_name"

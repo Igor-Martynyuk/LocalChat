@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth.signup
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.root
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.map
 import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSignUpBinding
 import com.dev.martyniuk.local.chat.ui.view.ext.updateText
-import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.FragmentCredentials
+import com.dev.martyniuk.local.chat.ui.view.root.auth.FragmentCredentials
 import com.dev.martyniuk.local.chat.ui.view.view.SmartErrorTextInputLayout
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint

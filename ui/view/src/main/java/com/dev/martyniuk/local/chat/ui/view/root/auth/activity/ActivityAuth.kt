@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth
+package com.dev.martyniuk.local.chat.ui.view.root.auth.activity
 
 import android.os.Bundle
 import android.view.View

@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction
+package com.dev.martyniuk.local.chat.ui.view.root.auth
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.main
+package com.dev.martyniuk.local.chat.ui.view.root.main.activity
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.ui.view.root.auth.signup
+package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.root
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
@@ -9,7 +9,7 @@ import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.Case
 import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidateDisplayName
 import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth
 import com.dev.martyniuk.local.chat.ui.view.ext.combine
-import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
+import com.dev.martyniuk.local.chat.ui.view.root.auth.ViewModelCredentials
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
