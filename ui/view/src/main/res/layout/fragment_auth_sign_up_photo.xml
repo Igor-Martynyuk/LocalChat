@@ -30,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/spacing"
-        app:layout_constraintBottom_toTopOf="@id/btn_select_photo"
+        app:layout_constraintBottom_toTopOf="@id/btn_get_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layout_img_url" />
@@ -39,25 +39,25 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/spacing"
-        app:layout_constraintBottom_toTopOf="@id/btn_select_photo"
+        app:layout_constraintBottom_toTopOf="@id/btn_get_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_select_photo"
+        android:id="@+id/btn_get_photo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up_select_photo"
-        app:layout_constraintBottom_toTopOf="@id/btn_take_photo"
+        android:text="@string/sign_up_get_photo"
+        app:layout_constraintBottom_toTopOf="@id/btn_make_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_take_photo"
+        android:id="@+id/btn_make_photo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/sign_up_take_photo"
+        android:text="@string/sign_up_make_photo"
         app:layout_constraintBottom_toTopOf="@id/btn_next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

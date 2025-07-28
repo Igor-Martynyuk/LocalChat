@@ -25,8 +25,8 @@
     <string name="sign_in_already_have_account">Already have an account?</string>
 
     <string name="sign_up">Sign Up</string>
-    <string name="sign_up_select_photo">Select Photo</string>
-    <string name="sign_up_take_photo">Take Photo</string>
+    <string name="sign_up_get_photo">Select Photo</string>
+    <string name="sign_up_make_photo">Camera</string>
 
     <string name="notification_permission_declined_camera">Can\'t make a photo. Camera permission declined</string>
     <string name="notification_failed_make_photo">Photo was not created. Return to registration</string>

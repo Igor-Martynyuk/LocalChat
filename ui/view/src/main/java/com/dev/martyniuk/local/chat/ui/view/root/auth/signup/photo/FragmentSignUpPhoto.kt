@@ -61,7 +61,11 @@ class FragmentSignUpPhoto : Fragment() {
                 "$prefixPhotoName${System.currentTimeMillis()}.${Bitmap.CompressFormat.JPEG}"
             )
 
-            photoUri = FileProvider.getUriForFile(requireContext(), "${requireContext().packageName}$routeProvider", file)
+            photoUri = FileProvider.getUriForFile(
+                requireContext(),
+                "${requireContext().packageName}$routeProvider",
+                file
+            )
             photoUri?.let(launcherCamera::launch) ?: notifyCantCreateFile()
         }
 
@@ -75,31 +79,10 @@ class FragmentSignUpPhoto : Fragment() {
             else notifyTakePhotoFailed()
         }
 
-        binding.btnTakePhoto.setOnClickListener {
+        binding.btnMakePhoto.setOnClickListener {
             if (requireContext().isGranted(Manifest.permission.CAMERA)) onCameraPermitted()
             else launcherRequestCameraPermission.launch(Manifest.permission.CAMERA)
         }
-    }
-
-    private fun showTextNotification(resId: Int) =
-        Snackbar.make(requireView(), getString(resId), Snackbar.LENGTH_LONG).show()
-
-    private fun notifyCameraPermissionDeclined() =
-        showTextNotification(R.string.notification_permission_declined_camera)
-
-    private fun notifyTakePhotoFailed() =
-        showTextNotification(R.string.notification_failed_make_photo)
-
-    private fun notifyCantCreateFile() =
-        showTextNotification(R.string.notification_failed_make_photo_file)
-
-    private fun setupGetImageRequest() {
-        launcherGetPhoto = registerForActivityResult(
-            ActivityResultContracts.GetContent(),
-            viewModel::onUseDirectUriCommand
-        )
-
-        binding.btnSelectPhoto.setOnClickListener { launcherGetPhoto.launch("image/*") }
     }
 
     private fun setupUrlInputField() {
@@ -116,4 +99,25 @@ class FragmentSignUpPhoto : Fragment() {
             .map { if (it) null else getString(R.string.auth_img_file_url_invalid) }
             .observe(viewLifecycleOwner, binding.layoutImgUrl::setError)
     }
+
+    private fun setupGetImageRequest() {
+        launcherGetPhoto = registerForActivityResult(
+            ActivityResultContracts.GetContent(),
+            viewModel::onUseDirectUriCommand
+        )
+
+        binding.btnGetPhoto.setOnClickListener { launcherGetPhoto.launch("image/*") }
+    }
+
+    private fun showTextNotification(resId: Int) =
+        Snackbar.make(requireView(), getString(resId), Snackbar.LENGTH_LONG).show()
+
+    private fun notifyCameraPermissionDeclined() =
+        showTextNotification(R.string.notification_permission_declined_camera)
+
+    private fun notifyTakePhotoFailed() =
+        showTextNotification(R.string.notification_failed_make_photo)
+
+    private fun notifyCantCreateFile() =
+        showTextNotification(R.string.notification_failed_make_photo_file)
 }
