@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSubscribeIsAuthorized
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn

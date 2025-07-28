@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.core.layer.domain.validation
+package com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation
 
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject

@@ -3,8 +3,8 @@ package com.dev.martyniuk.local.chat.ui.view.root.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
-import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSubscribeIsAuthorized
+import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth
 import com.dev.martyniuk.local.chat.ui.view.ext.asLiveEventExt
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

@@ -1,6 +1,6 @@
-package com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher
+package com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher
 
-import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth.*
+import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth.*
 import dagger.hilt.android.scopes.ActivityRetainedScoped
 import javax.inject.Inject
 

@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidateEmail
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidatePassword
 
 abstract class ViewModelCredentials(
     private val validateEmailCase: CaseValidateEmail,

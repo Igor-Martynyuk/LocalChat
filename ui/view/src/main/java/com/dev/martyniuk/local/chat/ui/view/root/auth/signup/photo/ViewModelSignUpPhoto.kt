@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.layer.domain.img.CaseLoadBitmap
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateImgUrl
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.img.CaseLoadBitmap
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidateImgUrl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn

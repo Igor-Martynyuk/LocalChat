@@ -1,8 +1,8 @@
-package com.dev.martyniuk.local.chat.core.layer.data
+package com.dev.martyniuk.local.chat.core.layer.data.web.firebase
 
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUpAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSignInAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSignUpAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.dto.DtoUserAccount
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

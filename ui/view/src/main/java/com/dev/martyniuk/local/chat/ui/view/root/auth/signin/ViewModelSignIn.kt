@@ -1,11 +1,11 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signin
 
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
-import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth
-import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth.Route
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSignInAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidateEmail
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidatePassword
+import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth
+import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth.Route
 import com.dev.martyniuk.local.chat.ui.view.ext.combine
 import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
 import dagger.hilt.android.lifecycle.HiltViewModel

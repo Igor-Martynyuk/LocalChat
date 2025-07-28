@@ -4,10 +4,10 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.Uri
 import com.dev.martyniuk.local.chat.core.extensions.kotlin.isNull
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseAuthAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount
-import com.dev.martyniuk.local.chat.core.layer.domain.img.CaseLoadBitmap
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseAuthAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSubscribeIsAuthorized
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.dto.DtoUserAccount
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.img.CaseLoadBitmap
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 import kotlin.random.Random
 
 @Singleton
-class GatewayAndroid @Inject constructor(
+class GatewayOperatingSystem @Inject constructor(
     @ApplicationContext private val context: Context
 ) : CaseAuthAsync.LocalPort, CaseSubscribeIsAuthorized.LocalPort, CaseLoadBitmap.PortIn {
     private val userFlow = MutableStateFlow<DtoUserAccount?>(null)

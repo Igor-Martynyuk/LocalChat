@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.core.layer.domain.img
+package com.dev.martyniuk.local.chat.core.layer.domain.interactor.img
 
 import android.graphics.Bitmap
 import android.net.Uri
@@ -10,7 +10,7 @@ import com.dev.martyniuk.local.chat.core.extensions.android.isFTP
 import com.dev.martyniuk.local.chat.core.extensions.android.isFile
 import com.dev.martyniuk.local.chat.core.extensions.android.isHttp
 import com.dev.martyniuk.local.chat.core.extensions.android.isHttps
-import com.dev.martyniuk.local.chat.core.layer.domain.abstraction.UseCaseAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.UseCaseAsync
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

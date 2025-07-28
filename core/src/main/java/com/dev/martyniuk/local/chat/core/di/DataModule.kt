@@ -1,14 +1,14 @@
 package com.dev.martyniuk.local.chat.core.di
 
-import com.dev.martyniuk.local.chat.core.layer.data.GatewayAndroid
+import com.dev.martyniuk.local.chat.core.layer.data.GatewayOperatingSystem
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayFileSystem
-import com.dev.martyniuk.local.chat.core.layer.data.GatewayFirebase
-import com.dev.martyniuk.local.chat.core.layer.data.web.GatewayWeb
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUpAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
-import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseAuthAsync
-import com.dev.martyniuk.local.chat.core.layer.domain.img.CaseLoadBitmap
+import com.dev.martyniuk.local.chat.core.layer.data.web.firebase.GatewayFirebase
+import com.dev.martyniuk.local.chat.core.layer.data.web.common.GatewayWebCommon
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSignInAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSignUpAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseSubscribeIsAuthorized
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.auth.CaseAuthAsync
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.img.CaseLoadBitmap
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -21,7 +21,7 @@ interface DataModule {
 
     @Binds
     @Singleton
-    fun bindAuthorizeLocalPort(impl: GatewayAndroid): CaseAuthAsync.LocalPort
+    fun bindAuthorizeLocalPort(impl: GatewayOperatingSystem): CaseAuthAsync.LocalPort
 
     @Binds
     @Singleton
@@ -33,17 +33,17 @@ interface DataModule {
 
     @Binds
     @Singleton
-    fun bindLocalIsAuthorizedLocalPort(impl: GatewayAndroid): CaseSubscribeIsAuthorized.LocalPort
+    fun bindLocalIsAuthorizedLocalPort(impl: GatewayOperatingSystem): CaseSubscribeIsAuthorized.LocalPort
 
     @Binds
     @Singleton
     @SourceRemote
-    fun bindRemoteImgInPort(impl: GatewayWeb): CaseLoadBitmap.PortIn
+    fun bindRemoteImgInPort(impl: GatewayWebCommon): CaseLoadBitmap.PortIn
 
     @Binds
     @Singleton
     @SourceOS
-    fun bindOsImgInPort(impl: GatewayAndroid): CaseLoadBitmap.PortIn
+    fun bindOsImgInPort(impl: GatewayOperatingSystem): CaseLoadBitmap.PortIn
 
     @Binds
     @Singleton

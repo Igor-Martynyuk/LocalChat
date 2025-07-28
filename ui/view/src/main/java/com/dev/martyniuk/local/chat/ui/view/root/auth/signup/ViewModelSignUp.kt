@@ -4,10 +4,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateEmail
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidatePassword
-import com.dev.martyniuk.local.chat.core.layer.domain.validation.CaseValidateDisplayName
-import com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher.DispatcherNavigationAuth
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidateEmail
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidatePassword
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation.CaseValidateDisplayName
+import com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher.DispatcherNavigationAuth
 import com.dev.martyniuk.local.chat.ui.view.ext.combine
 import com.dev.martyniuk.local.chat.ui.view.root.auth.abstraction.ViewModelCredentials
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.core.layer.ui.event.dispatcher
+package com.dev.martyniuk.local.chat.core.layer.domain.event.dispatcher
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

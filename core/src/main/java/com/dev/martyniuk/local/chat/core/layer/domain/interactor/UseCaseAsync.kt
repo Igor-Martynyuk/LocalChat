@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.core.layer.domain.abstraction
+package com.dev.martyniuk.local.chat.core.layer.domain.interactor
 
 import kotlinx.coroutines.flow.Flow
 

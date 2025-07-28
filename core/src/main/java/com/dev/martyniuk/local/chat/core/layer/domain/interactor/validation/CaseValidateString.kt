@@ -1,6 +1,6 @@
-package com.dev.martyniuk.local.chat.core.layer.domain.validation
+package com.dev.martyniuk.local.chat.core.layer.domain.interactor.validation
 
-import com.dev.martyniuk.local.chat.core.layer.domain.abstraction.UseCase
+import com.dev.martyniuk.local.chat.core.layer.domain.interactor.UseCase
 
 abstract class CaseValidateString(template: String) : UseCase<String, Boolean>() {
     private val regex = Regex(template)
