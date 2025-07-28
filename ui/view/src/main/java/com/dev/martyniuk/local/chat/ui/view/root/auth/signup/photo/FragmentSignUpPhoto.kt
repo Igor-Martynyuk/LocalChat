@@ -1,7 +1,7 @@
 package com.dev.martyniuk.local.chat.ui.view.root.auth.signup.photo
 
 import android.Manifest
-import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
@@ -18,19 +17,24 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.map
 import com.dev.martyniuk.local.chat.core.R
-import com.dev.martyniuk.local.chat.core.extensions.isNull
+import com.dev.martyniuk.local.chat.core.doNothing
+import com.dev.martyniuk.local.chat.core.extensions.android.isGranted
 import com.dev.martyniuk.local.chat.ui.view.databinding.FragmentAuthSignUpPhotoBinding
 import com.dev.martyniuk.local.chat.ui.view.ext.onEach
 import com.dev.martyniuk.local.chat.ui.view.ext.updateText
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
 
 @AndroidEntryPoint
 class FragmentSignUpPhoto : Fragment() {
+    private var prefixPhotoName = "photo_"
+    private var routeProvider = ".provider"
+
     private lateinit var binding: FragmentAuthSignUpPhotoBinding
     private val viewModel: ViewModelSignUpPhoto by viewModels()
 
-    private lateinit var commandOnUrlInputDone: () -> Unit
+    private var onUrlInputDone: () -> Unit = ::doNothing
     private lateinit var launcherGetPhoto: ActivityResultLauncher<String>
 
     private lateinit var launcherRequestCameraPermission: ActivityResultLauncher<String>
@@ -49,45 +53,45 @@ class FragmentSignUpPhoto : Fragment() {
         setupMakePhotoRequest()
     }
 
-    private fun openCamera() {
-        val photoFile = File(
-            requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
-            "photo_${System.currentTimeMillis()}.jpg"
-        )
-
-        photoUri = FileProvider.getUriForFile(
-            requireContext(),
-            "${requireContext().packageName}.provider",
-            photoFile
-        )
-
-        if (photoUri.isNull()) Toast.makeText(requireContext(), "Can't create photo file", Toast.LENGTH_LONG).show()
-        else launcherCamera.launch(photoUri!!)
-    }
-
     private fun setupMakePhotoRequest() {
-        val commandOnCameraDenied =
-            Toast.makeText(requireContext(), "Permissions denied", Toast.LENGTH_LONG)::show
-        val commandOnCameraPermitted = ::openCamera
+        val onCameraDenied = ::notifyCameraPermissionDeclined
+        val onCameraPermitted = {
+            val file = File(
+                requireContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+                "$prefixPhotoName${System.currentTimeMillis()}.${Bitmap.CompressFormat.JPEG}"
+            )
 
-        launcherRequestCameraPermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-            if (it) commandOnCameraPermitted.invoke()
-            else commandOnCameraDenied.invoke()
+            photoUri = FileProvider.getUriForFile(requireContext(), "${requireContext().packageName}$routeProvider", file)
+            photoUri?.let(launcherCamera::launch) ?: notifyCantCreateFile()
         }
+
+        launcherRequestCameraPermission =
+            registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+                if (it) onCameraPermitted() else onCameraDenied()
+            }
 
         launcherCamera = registerForActivityResult(ActivityResultContracts.TakePicture()) {
             if (it) binding.imgCropView.setImageUriAsync(photoUri)
-            else Toast.makeText(requireContext(), "Canceled", Toast.LENGTH_LONG).show()
+            else notifyTakePhotoFailed()
         }
 
         binding.btnTakePhoto.setOnClickListener {
-            requestCameraPermission(commandOnCameraPermitted)
+            if (requireContext().isGranted(Manifest.permission.CAMERA)) onCameraPermitted()
+            else launcherRequestCameraPermission.launch(Manifest.permission.CAMERA)
         }
     }
 
-    private fun requestCameraPermission(onPermitted: () -> Unit) =
-        if (requireContext().checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) onPermitted.invoke()
-        else launcherRequestCameraPermission.launch(Manifest.permission.CAMERA)
+    private fun showTextNotification(resId: Int) =
+        Snackbar.make(requireView(), getString(resId), Snackbar.LENGTH_LONG).show()
+
+    private fun notifyCameraPermissionDeclined() =
+        showTextNotification(R.string.notification_permission_declined_camera)
+
+    private fun notifyTakePhotoFailed() =
+        showTextNotification(R.string.notification_failed_make_photo)
+
+    private fun notifyCantCreateFile() =
+        showTextNotification(R.string.notification_failed_make_photo_file)
 
     private fun setupGetImageRequest() {
         launcherGetPhoto = registerForActivityResult(
@@ -101,20 +105,14 @@ class FragmentSignUpPhoto : Fragment() {
     private fun setupUrlInputField() {
         binding.inputImgUrl.doAfterTextChanged { viewModel.onInputUrl(it.toString()) }
         binding.inputImgUrl.setOnEditorActionListener { it, action, _ ->
-            if (action == EditorInfo.IME_ACTION_DONE) commandOnUrlInputDone.invoke()
+            if (action == EditorInfo.IME_ACTION_DONE) onUrlInputDone()
             it.clearFocus()
             false
         }
 
         viewModel.url.observe(viewLifecycleOwner, binding.inputImgUrl::updateText)
         viewModel.isUrlValid
-            .onEach {
-                commandOnUrlInputDone =
-                    if (it) viewModel::onUseUrlInputCommand
-                    else {
-                        { }
-                    }
-            }
+            .onEach { onUrlInputDone = if (it) viewModel::onUseUrlInputCommand else ::doNothing }
             .map { if (it) null else getString(R.string.auth_img_file_url_invalid) }
             .observe(viewLifecycleOwner, binding.layoutImgUrl::setError)
     }

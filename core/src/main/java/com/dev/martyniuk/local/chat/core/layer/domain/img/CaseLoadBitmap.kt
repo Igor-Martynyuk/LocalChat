@@ -5,11 +5,11 @@ import android.net.Uri
 import com.dev.martyniuk.local.chat.core.di.SourceFS
 import com.dev.martyniuk.local.chat.core.di.SourceOS
 import com.dev.martyniuk.local.chat.core.di.SourceRemote
-import com.dev.martyniuk.local.chat.core.extensions.isContent
-import com.dev.martyniuk.local.chat.core.extensions.isFTP
-import com.dev.martyniuk.local.chat.core.extensions.isFile
-import com.dev.martyniuk.local.chat.core.extensions.isHttp
-import com.dev.martyniuk.local.chat.core.extensions.isHttps
+import com.dev.martyniuk.local.chat.core.extensions.android.isContent
+import com.dev.martyniuk.local.chat.core.extensions.android.isFTP
+import com.dev.martyniuk.local.chat.core.extensions.android.isFile
+import com.dev.martyniuk.local.chat.core.extensions.android.isHttp
+import com.dev.martyniuk.local.chat.core.extensions.android.isHttps
 import com.dev.martyniuk.local.chat.core.layer.domain.abstraction.UseCaseAsync
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow

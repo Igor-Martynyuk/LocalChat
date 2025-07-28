@@ -1,4 +1,4 @@
-package com.dev.martyniuk.local.chat.core.extensions
+package com.dev.martyniuk.local.chat.core.extensions.android
 
 import android.net.Uri
 

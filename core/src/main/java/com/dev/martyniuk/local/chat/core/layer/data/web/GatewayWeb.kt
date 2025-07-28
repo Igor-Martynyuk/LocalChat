@@ -1,8 +1,7 @@
-package com.dev.martyniuk.local.chat.core.layer.data
+package com.dev.martyniuk.local.chat.core.layer.data.web
 
 import android.graphics.BitmapFactory
 import android.net.Uri
-import com.dev.martyniuk.local.chat.core.exception.HttpException
 import com.dev.martyniuk.local.chat.core.layer.domain.img.CaseLoadBitmap
 import kotlinx.coroutines.flow.flow
 import okhttp3.OkHttpClient

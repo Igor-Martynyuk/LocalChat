@@ -1,6 +1,6 @@
 package com.dev.martyniuk.local.chat.ui.view.ext
 
-import com.dev.martyniuk.local.chat.core.extensions.isNull
+import com.dev.martyniuk.local.chat.core.extensions.kotlin.isNull
 import com.google.android.material.textfield.TextInputEditText
 
 fun TextInputEditText.updateText(value: String) {

@@ -3,7 +3,7 @@ package com.dev.martyniuk.local.chat.core.layer.data
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.net.Uri
-import com.dev.martyniuk.local.chat.core.extensions.isNull
+import com.dev.martyniuk.local.chat.core.extensions.kotlin.isNull
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseAuthAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.dto.DtoUserAccount

@@ -3,7 +3,7 @@ package com.dev.martyniuk.local.chat.core.di
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayAndroid
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayFileSystem
 import com.dev.martyniuk.local.chat.core.layer.data.GatewayFirebase
-import com.dev.martyniuk.local.chat.core.layer.data.GatewayWeb
+import com.dev.martyniuk.local.chat.core.layer.data.web.GatewayWeb
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignInAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSignUpAsync
 import com.dev.martyniuk.local.chat.core.layer.domain.auth.CaseSubscribeIsAuthorized
