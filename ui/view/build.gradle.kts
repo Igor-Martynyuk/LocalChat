@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.dev.martyniuk.local.chat.ui.view"
-    compileSdk = 35
+    compileSdk = 36
 
     buildFeatures {
         viewBinding = true
